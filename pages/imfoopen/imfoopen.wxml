@@ -1,0 +1,6 @@
+<!--pages/imfoopen/imfoopen.wxml-->
+<view class="container">
+    <text>{{motto}}</text>
+    <scroll-view scroll-y>
+    </scroll-view>
+</view>

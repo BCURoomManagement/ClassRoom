@@ -1,0 +1,12 @@
+<!--pages/yan/yan.wxml-->
+<view class='bar'>
+<view class='barimg' style='  background-image: url({{cimg[imgtype]}})'>
+<view class='left' style="color: {{imgtype==0?'#7e8c99':'white'}}" bindtap='changeimg'>时间</view>
+<view class='right' style="color: {{imgtype==0?'white':'#7e8c99'}}" bindtap='changeimg2'>教室</view>
+</view>
+<view class='body_text'>
+  <view class='time-select' hidden='{{flag}}'>111</view>
+  <view class='text2' hidden='{{flag2}}'>222</view>
+</view>
+</view>
+

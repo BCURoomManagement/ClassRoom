@@ -1,0 +1,7 @@
+<!--pages/record/record.wxml-->
+<view class="container">
+    <text>{{motto}}</text>
+    <scroll-view scroll-y>
+    </scroll-view>
+</view>
+
