@@ -1,4 +1,4 @@
-<!--pages/roomselect/roomselect.wxml-->
+ <!--pages/roomselect/roomselect.wxml-->
 <backbar gohref="../index/index" paddingtop="115" margintop="0" imgcolor="back-grey"></backbar>
 <view class='body' style='height:{{(((currentTab==0?bgheight1.length:(currentTab==1?bgheight2.length:bgheight3.length))-2)*450+100+screenheight*2)>screenheight*2?(((currentTab==0?bgheight1.length:(currentTab==1?bgheight2.length:bgheight3.length))-2)*450+100+screenheight*2):screenheight*2}}rpx'>
   <view class='container' 

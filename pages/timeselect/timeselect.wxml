@@ -5,7 +5,20 @@
 <view class='right' style="color: {{imgtype==0?'white':'#7e8c99'}}" bindtap='changeimg2'>教室</view>
 </view>
 <view class='body_text'>
-  <view class='time-select' hidden='{{flag}}'>111</view>
+  <view class='time-select' hidden='{{flag}}'>
+    <!-- <text class='time-year'>{{ year }} - {{ month}}</text> -->
+    <view class='time-calendar'>
+      <view class="time-calendar-weekArr">
+      <view class='weekArr'wx:for='{{ weekArr }}'>{{ item }}</view>
+      </view>
+      <view class='tiao'></view>
+      <view class="time-calendar-arry">
+        <view wx:for='{{ arr }}' style='{{ item == 0 ? "visibility:hidden": "" }}' class='{{item<getDate||item>getDate+getcha?"dateNone":"dateOther"}}'><view class='{{item ==  getDate ?"getDateOn":"getDateNo"}}'>{{ item }}</view>{{ item }}
+      </view></view>
+      <view class='{{flagmonth==false?"next":"pre"}}' bindtap='nextMonth'><image src='../../images/next_month.png'></image></view>
+    </view>
+  </view>
+  
   <view class='text2' hidden='{{flag2}}'>222</view>
 </view>
 </view>

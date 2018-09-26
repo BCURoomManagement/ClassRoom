@@ -1,7 +1,7 @@
 /* pages/yan/yan.wxss */
 page{
   width: 100%;
-  background: linear-gradient(to top  right,#ac4cff 0%, rgb(150, 102, 254) 100%);
+  background: linear-gradient(to top  right,#ac4cff 0%, #9666fe 100%);
   padding-top: 130rpx;
 }
 .bar{
@@ -22,8 +22,8 @@ page{
   padding-top:10rpx;
   text-align: center;
   letter-spacing: 40rpx;
-   float: left;
-   width: 50%;
+  float: left;
+  width: 50%;
 }
 
 .body_text{
@@ -35,6 +35,90 @@ page{
   position: absolute;
   /* border: 1rpx solid red; */
 }
+/* .time-year{
+   margin-bottom: 5rpx;
+   margin-left: 50rpx;
+   color: #7b8a97;
+   font-size: 30rpx;
+   letter-spacing: 5rpx;
+} */
+.time-calendar{
+  background-color: #fff;
+  margin-left: 35rpx;
+  margin-bottom: 30rpx;
+  width: 92%;
+  border-radius: 20rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10rpx;
+}
+/* 日历 */
+.time-calendar-weekArr{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.weekArr{
+  width: 14.2%;
+  margin: 30rpx auto 30rpx auto;
+  font-size: 30rpx;
+  font-family: "Microsoft YaHei";
+  color: #7b8a97;
+  font-weight: 500;
+}
+.tiao{
+  margin: 2rpx auto 0px auto;
+  width: 95.4%;
+  height: 2rpx;
+   background-color: #ebeeef;
+}
+.time-calendar-arry{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.dateNone,.dateOther{
+  width: 14.2%;
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
+  font-size: 30rpx;
+  font-family: "Microsoft YaHei";
+  color: #72808d;
+  position: relative;
+}
+.dateNone{
+  color: #adadad;
+}
+.getDateOn{
+  text-align: center;
+  border-radius: 50%;
+  position: absolute;
+  width: 70%;
+  height: 150%;
+  line-height: 55rpx;
+  background:linear-gradient( to right,#ac4cff,#9666fe);
+  top: 50%;
+  transform:translate(30%, -50%) scale(1);
+  color: #fff;
+}
+.getDateGrey{
+   display: none;
+}
+.getDateNo{
+  display: none;
+}
+.next image{
+  width: 36rpx;
+  height: 36rpx;
+}
+.pre image{
+  width: 36rpx;
+  height: 36rpx;
+  transform: rotate(180deg);
+}
+
 .text2{
   background-color: #FBFBFB;
   width: 100%;
