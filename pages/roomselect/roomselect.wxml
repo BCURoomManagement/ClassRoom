@@ -1,6 +1,7 @@
  <!--pages/roomselect/roomselect.wxml-->
 <backbar gohref="../index/index" paddingtop="115" margintop="0" imgcolor="back-grey"></backbar>
 <view class='body' style='height:{{(((currentTab==0?bgheight1.length:(currentTab==1?bgheight2.length:bgheight3.length))-2)*450+100+screenheight*2)>screenheight*2?(((currentTab==0?bgheight1.length:(currentTab==1?bgheight2.length:bgheight3.length))-2)*450+100+screenheight*2):screenheight*2}}rpx'>
+<view class='container-left'style='height:{{(((currentTab==0?bgheight1.length:(currentTab==1?bgheight2.length:bgheight3.length))-2)*450+300+screenheight*2)>screenheight*2?(((currentTab==0?bgheight1.length:(currentTab==1?bgheight2.length:bgheight3.length))-2)*450+300+screenheight*2):screenheight*2.3}}rpx'></view>
   <view class='container' 
   style='height:{{currentTab==0?bgheight1.length*450+150:(currentTab==1?bgheight2.length*450+150:bgheight3.length*450+150)}}rpx' >
     <view class='swiper-tab'>
@@ -53,6 +54,7 @@
         </swiper-item>
       </swiper>
   </view>
+<view class='container-right'style='height:{{(((currentTab==0?bgheight1.length:(currentTab==1?bgheight2.length:bgheight3.length))-2)*450+300+screenheight*2)>screenheight*2?(((currentTab==0?bgheight1.length:(currentTab==1?bgheight2.length:bgheight3.length))-2)*450+300+screenheight*2):screenheight*2.3}}rpx'></view>
 </view>
 <view class="modal-box" hidden="{{flag1}}" bindtap="hide" catchtouchmove='true'>
   <view class='modal-body'>

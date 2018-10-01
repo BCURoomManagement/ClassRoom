@@ -1,8 +1,8 @@
 {
   "pages":[
-    "pages/timeselect/timeselect",
-    "pages/roomselect/roomselect",
+    "pages/timeselect/timeselect",    
     "pages/index/index",
+    "pages/roomselect/roomselect",    
     "pages/introduce/introduce",
     "pages/logs/logs",
     "pages/demo/demo",

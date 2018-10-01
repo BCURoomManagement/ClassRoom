@@ -1,4 +1,6 @@
 const app = getApp()
+// @需要字段:用户姓名username  学部department 学号studentnumber
+// 学号可以为空
 Page({
 
   /**

@@ -34,7 +34,7 @@ Component({
    */
   methods: {
     go: function (event) {
-      wx.navigateTo({
+      wx.redirectTo({
         url: event.currentTarget.dataset.href
       })
     },

@@ -1,4 +1,7 @@
 // pages/roomselect/roomselect.js
+// @需要字段:三种教室的json数据，包含：roomname名字  roomplace位置  容纳人数roompeople 图片roomimg 是否有：wifi ty投影 jsj教室机 key门禁锁 network有线网络 tv触屏电视 studentcomputer学生电脑 desk活动书桌 ytj一体机 hy会议系统 kt空调 gddesk固定桌椅
+//
+// 
 Page({
 
   /**
@@ -14,8 +17,8 @@ Page({
     array1: [{
       roomname: " 大数据学院119", roomplace: "3号实训楼1层北侧", roompeople: 40, roomimg: "../../images/room1.png", wifi: false, ty: true, jsj: true, key: true, network: false, tv: true, studentcomputer: false, desk: false, ytj: false, hy: true, kt: false, gddesk: true}, { roomname: " 大数据学院119", roomplace: "3号实训楼1层北侧", roompeople: 20, roomimg: "../../images/room2.png", wifi: true, ty: false, jsj:true, key: false, network: false, tv: true, studentcomputer: true, desk: true, ytj: true, hy: false, kt: false, gddesk:true }, {roomname: " 大数据学院119", roomplace: "3号实训楼1层北侧", roompeople: 40, roomimg: "../../images/room1.png", wifi: false, ty: false, jsj: true, key: true, network: true, tv: true, studentcomputer: false, desk: true, ytj: false, hy: false, kt: true, gddesk: true}],
     array2: [{
-      roomname: "3s北305", roomplace: "3号实训楼3层北侧", roompeople: 40, roomimg: "../../images/room1.png", wifi: false, ty: true, jsj: true, key: true, network: false, tv: true, studentcomputer: false, desk: false, ytj: false, hy: true, kt: false, gddesk: true
-    }, { roomname: "3s北306", roomplace: "3号实训楼3层北侧", roompeople: 20, roomimg: "../../images/room2.png", wifi: true, ty: false, jsj: true, key: false, network: false, tv: true, studentcomputer: true, desk: true, ytj: true, hy: false, kt: false, gddesk: true }],
+      roomname: "3s北305", roomplace: "3号实训楼3层北侧", roompeople: 40, roomimg: "../../images/room1.png", wifi: false, ty: true, jsj: true, key: true, network: false, tv: true, studentcomputer: false, desk: false, ytj: false, hy: true, kt: false, gddesk: true}, { roomname: "3s北306", roomplace: "3号实训楼3层北侧", roompeople: 20, roomimg: "../../images/room2.png", wifi: true, ty: false, jsj: true, key: false, network: false, tv: true, studentcomputer: true, desk: true, ytj: true, hy: false, kt: false, gddesk: true }],
+
     array3: [{roomname: "3s南201", roomplace: "3号实训楼3层北侧", roompeople: 40, roomimg: "../../images/room1.png", wifi: false, ty: true, jsj: true, key: true, network: false, tv: true, studentcomputer: false, desk: false, ytj: false, hy: true, kt: false, gddesk: true
     }],
     flag1:true,

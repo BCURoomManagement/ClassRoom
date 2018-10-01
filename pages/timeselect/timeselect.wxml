@@ -1,4 +1,5 @@
 <!--pages/yan/yan.wxml-->
+<backbar gohref="../index/index" paddingtop="0" margintop="0" imgcolor="back-grey"></backbar>
 <view class='bar'>
 <view class='barimg' style='  background-image: url({{cimg[imgtype]}})'>
 <view class='left' style="color: {{imgtype==0?'#7e8c99':'white'}}" bindtap='changeimg'>时间</view>
@@ -6,19 +7,33 @@
 </view>
 <view class='body_text'>
   <view class='time-select' hidden='{{flag}}'>
-    <!-- <text class='time-year'>{{ year }} - {{ month}}</text> -->
     <view class='time-calendar'>
+    <view class='time-calendar-months'>
+    <view class='pre' bindtap='preMonth'><image src='../../images/next_month.png'></image></view> 
+    <text class='time-month'>{{ month}}<text class='time-month-yue'>月</text></text >
+    <view class='next' bindtap='nextMonth'><image src='../../images/next_month.png'></image></view>
+    </view>
       <view class="time-calendar-weekArr">
-      <view class='weekArr'wx:for='{{ weekArr }}'>{{ item }}</view>
+        <view class='weekArr'wx:for='{{ weekArr }}'>{{ item }}</view>
       </view>
       <view class='tiao'></view>
       <view class="time-calendar-arry">
-        <view wx:for='{{ arr }}' style='{{ item == 0 ? "visibility:hidden": "" }}' class='{{item<getDate||item>getDate+getcha?"dateNone":"dateOther"}}'><view class='{{item ==  getDate ?"getDateOn":"getDateNo"}}'>{{ item }}</view>{{ item }}
+        <view wx:for='{{ arr }}' style='{{ item == 0 ? "visibility:hidden": "" }}' class='{{item<getDate||item>getDate+getcha?"dateNone":"dateOther"}}' data-day='{{item}}' bindtap="selectDay" ><view class='{{item ==  getDate ?"getDateOn":"getDateNo"}}'>{{ item }}</view>{{ item }}
       </view></view>
-      <view class='{{flagmonth==false?"next":"pre"}}' bindtap='nextMonth'><image src='../../images/next_month.png'></image></view>
     </view>
+    <view class='class-calendar' hidden="{{flagtime}}" >
+        <view class='class-calendar-left'>
+          <view class='left-am'>上 午</view>
+          <view class='left-am left-pm'>下 午</view>
+        </view>
+        <view class='class-calendar-right'>
+          <view class='calendar-right-num {{item.classz}} 'wx:for='{{ timeList }}' data-stime="{{item.time}}" bindtap='selectTime'>{{item.timetext}}
+          </view>
+        </view>
+    </view>
+    <view class='show-time' wx:if="{{Timebegin}}">时间：{{timeList[Timebegin-1].start}}-{{timeList[Timeend-1].end}}</view>
+    <view class='submit-time' style='margin: {{submitT}}rpx auto;' bindtap='submitT'>确 认</view>
   </view>
-  
   <view class='text2' hidden='{{flag2}}'>222</view>
 </view>
 </view>
