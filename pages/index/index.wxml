@@ -23,11 +23,11 @@
     </view>
     <view class='select-container'>
       <view class='select-container-left'>
-        <view class='left-borrow' data-href='../roomselect/roomselect' bindtap='go'>
+        <view class='left-borrow' data-href='../timeselect/timeselect' bindtap='go'>
           <text class='select-text1'>教室借用</text>
           <image src='../../images/left-borrow-img.png'></image>
         </view>
-        <view class='left-introduce' data-href='../introduce/introduce' bindtap='go' >
+        <view class='left-introduce' data-href='../roomselect/roomselect' bindtap='go' >
           <text class='select-text2'>教室介绍 </text>
         </view>
         <view class='left-open' data-href='../imfoopen/imfoopen' bindtap='go' >

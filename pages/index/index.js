@@ -19,12 +19,12 @@ Page({
   onLoad: function () {
   },
   ToSetup:function(){
-    wx.navigateTo({
+    wx.redirectTo({
       url: '',
     })
   },
   go: function (event) {
-    wx.navigateTo({
+    wx.redirectTo({
       url: event.currentTarget.dataset.href
     })
   },

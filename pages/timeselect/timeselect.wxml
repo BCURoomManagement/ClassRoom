@@ -1,5 +1,5 @@
 <!--pages/yan/yan.wxml-->
-<backbar gohref="../index/index" paddingtop="0" margintop="0" imgcolor="back-grey"></backbar>
+<backbar gohref="../index/index" paddingtop="12" margintop="0" imgcolor="back-grey"></backbar>
 <view class='bar'>
 <view class='barimg' style='  background-image: url({{cimg[imgtype]}})'>
 <view class='left' style="color: {{imgtype==0?'#7e8c99':'white'}}" bindtap='changeimg'>时间</view>

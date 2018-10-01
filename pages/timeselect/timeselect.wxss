@@ -5,7 +5,7 @@ page{
   padding-top: 60rpx;
 }
 .bar{
-  padding-top: 40px;
+  padding-top: 50px;
   width: 94.5%;
   margin: 0rpx auto;
 }
