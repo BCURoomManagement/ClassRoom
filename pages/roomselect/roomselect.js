@@ -37,6 +37,18 @@ Page({
       bgheight3: that.data.array3,
        });
        console.log("zz"+that.data.screenheight)
+    //   wx.request({
+    //       url: 'http://localhost:8080/IndexServlet',
+    //       data: {
+    //           te:1
+    //       },
+    //       header: {
+    //           'content-type': 'application/json' // 默认值
+    //       },
+    //       success: function (res) {
+    //           console.log(res.data)
+    //       }
+    //   })
   },
   /**
      * 滑动切换tab
