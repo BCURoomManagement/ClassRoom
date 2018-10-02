@@ -22,6 +22,7 @@ Page({
     array3: [{roomname: "3s南201", roomplace: "3号实训楼3层北侧", roompeople: 40, roomimg: "../../images/room1.png", wifi: false, ty: true, jsj: true, key: true, network: false, tv: true, studentcomputer: false, desk: false, ytj: false, hy: true, kt: false, gddesk: true
     }],
     flag1:true,
+    flag2:false,
     selectjson:null,
   },
 
@@ -65,6 +66,7 @@ Page({
   show:function(e){
     this.setData({ 
       flag1:false,
+      flag2: true,
       selectjson: e.currentTarget.dataset.item,
       })
     // var name = e.currentTarget.dataset.item;
@@ -73,6 +75,7 @@ Page({
   hide:function(){
     this.setData({ 
       flag1:true,
+      flag2:false,
       })
   },
 

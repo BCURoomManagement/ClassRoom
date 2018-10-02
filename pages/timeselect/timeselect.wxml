@@ -18,7 +18,7 @@
       </view>
       <view class='tiao'></view>
       <view class="time-calendar-arry">
-        <view wx:for='{{ arr }}' style='{{ item == 0 ? "visibility:hidden": "" }}' class='{{item<getDate||item>getDate+getcha?"dateNone":"dateOther"}}' data-day='{{item}}' bindtap="selectDay" ><view class='{{item ==  getDate ?"getDateOn":"getDateNo"}}'>{{ item }}</view>{{ item }}
+        <view wx:for='{{ arr }}' style='{{ item == 0 ? "visibility:hidden": "" }}' class='{{item<getDate||item>getDate+getcha?"dateNone":"dateOther"}}' data-day='{{item}}' bindtap="selectDay" ><view class='{{item ==  getDate ?"getDateOn":(item ==  selectDday&&selectMontn==month?"getStimeOn":"getDateNo")}}'>{{ item }}</view>{{ item }}
       </view></view>
     </view>
     <view class='class-calendar' hidden="{{flagtime}}" >

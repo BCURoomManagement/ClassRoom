@@ -24,6 +24,7 @@ Page({
     ThisT:null,
     getcha:7,
     selectDday:null,
+    selectMontn:null,
     timeList:[
       { time: 1, classz:'',timetext:1,start:"08:00",end:"08:45"},
       { time: 2, classz: '', timetext: 2, start: "08:45", end: "09:30" }, { time: 3, classz: '', timetext: 3, start: "09:45", end: "10:30" }, { time: 4, classz: '', timetext: 4, start: "10:30", end: "11:15" }, { time: 5, classz: '', timetext: '午1', start: "11:25", end: "12:10" }, { time: 6, classz: '', timetext: "午2", start: "12:10", end: "12:55" }, { time: 7, classz: '', timetext: 5, start: "13:05", end: "13:50" }, { time: 8, classz: '', timetext: 6, start: "13:50", end: "14:35" }, { time: 9, classz: '', timetext: 7, start: "14:50", end: "15:35" }, { time: 10, classz: '', timetext: 8, start: "15:35", end: "16:40" }, { time: 11, classz: '', timetext: "晚1", start: "16:30", end: "17:15" }, { time: 12, classz: '', timetext: "晚2", start: "17:15", end: "18:00" }, { time: 13, classz: '', timetext: "晚3", start: "18:10", end: "18:55" }, { time: 14, classz: '', timetext: "晚4", start: "18:55", end: "19:40" }
@@ -175,8 +176,10 @@ Page({
     }
   },
   selectDay:function(e){
+    var montn = this.data.month;
     this.setData({
       selectDday: e.currentTarget.dataset.day,
+      selectMontn: montn
     })
     if (e.currentTarget.dataset.day < this.data.getDate || e.currentTarget.dataset.day > (this.data.getDate + this.data.getcha)){
       wx.showModal({
@@ -188,13 +191,25 @@ Page({
       })
       this.setData({
         flagtime: true,
-        submitT:200
+        submitT:200,
+        Timebegin: '',
+        Timeend: '',
+        checkBegin: false,
+        checkEnd: false,
+        selectDday:"",
       })
+      this.renderStyle();
     }else{
       this.setData({
         flagtime: false,
-        submitT:100
+        submitT:100,
+        Timebegin: '',
+        Timeend: '',
+        checkBegin: false,
+        checkEnd: false,
       })
+      this.renderStyle();
+      // console.log(this.data.selectMontn +"selectMontn: montn")
     }
     console.log(this.data.selectDday)
   },
@@ -261,7 +276,11 @@ Page({
         timeList[this.data.Timebegin - 1].classz = ' active-first';
       }
     }
-
+    if (!this.data.checkEnd && !this.data.checkBegin){
+      for (var i =0; i < timeList.length; i++) {
+        timeList[i].classz = '';
+      }
+    }
 
     this.setData({
       timeList: timeList
@@ -274,7 +293,7 @@ Page({
         content: '未选择时间，请选择后提交',
         showCancel: false,
         confirmText: '确定',
-        confirmColor: "#77a9fb"
+        confirmColor: "#77a9fb",
       })
     } else if (!this.data.checkEnd){
       wx.showModal({
