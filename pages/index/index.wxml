@@ -14,8 +14,9 @@
           <view class='head-img-bg1 bg2'></view>
           <open-data type="userAvatarUrl" class="head-img"></open-data>
           <view class='info-text'>
-            <text class="info-text-name">{{username}}</text>
-            <text class='info-text-department'>{{department}}</text>
+            <view class='info-login' bindtap='login' wx:if="{{islogin==false}}">登录</view>
+            <text class="info-text-name" wx:if='{{username}}'>{{username}}</text>
+            <text class='info-text-department' wx:if='{{department}}'>{{department}}</text>
             <text class='info-text-number' wx:if='{{studentnumber}}'>{{studentnumber}}</text>
           </view>
         </view>
@@ -47,5 +48,22 @@
         </view>
       </view>
     </view>
+  </view>
+</view>
+
+<view class='modal-box' hidden="{{flag}}">
+  <view class='modal-body'>
+  <image src='../../images/close.png'  bindtap='hide'></image>
+  <form bindsubmit='formBindsubmit'>
+    <view class="inputView"> 
+      <input class="inputText"  type='submit' placeholder="请输入账号" name='userName' /> 
+      <view class='tiao'></view>
+    </view>
+    <view class="inputView"> 
+      <input class="inputText" type='password' placeholder="请输入密码" name='userPwd'/>
+      <view class='tiao'></view>
+    </view>
+      <button class="loginBtn" form-type='submit' hover-class='buttonhover'>登录</button> 
+  </form>
   </view>
 </view>

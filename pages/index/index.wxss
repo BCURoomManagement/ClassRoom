@@ -1,6 +1,4 @@
-.th{
-  
-}
+
 .topbar-bg{
   margin-top: -100rpx;
 } 
@@ -112,6 +110,13 @@
   margin-top: 48rpx;
   margin-left: 37rpx;
   opacity: 0.29;
+}
+.info-login{
+  letter-spacing: 15rpx;
+  margin-top: 30rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 42rpx;
+  color: #FFFFFF;
 }
 .info-text{
   display: flex;
@@ -238,4 +243,61 @@ letter-spacing: 0;
   margin-left: 20rpx;
   margin-top: 118rpx;
 }
+/* 弹出层 */
+.modal-box{
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0px;
+  background:rgba(0,0,0,0.4);
+  overflow: hidden;
+  }
+  .modal-body{
+  margin: 348rpx auto;
+  width: 620rpx;
+  border-radius: 10rpx;
+  background: #FBFBFB;
+  padding-top: 25rpx;
+  padding-bottom: 10rpx;
+  }
+  .modal-body image{
+    width: 48rpx;
+    height: 48rpx;
+    margin-right: 35rpx;
+    float: right;
+    margin-bottom: 50rpx;
+  }
+  .inputView{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40rpx;
+    display: flex;
+    flex-direction: column;
+  }
+  .inputText{
+    /* border-bottom: 1rpx solid #A9A9A9; */
+    margin: auto;
+    height: 70rpx;
+    font-size: 30rpx;
+  }
+  .tiao{
+    margin: 0rpx auto;
+    width: 50%;
+    height: 2rpx;
+    background-color: #A9A9A9;
 
+  }
+
+  .loginBtn{
+    flex: 1;
+    font-size: 40rpx;
+    text-align: center;
+    letter-spacing: 20rpx;
+    width: 70%;
+    height: 95rpx;
+    margin: 80rpx auto;
+    border-radius: 60rpx;
+    background:linear-gradient( to right, #33caff, #2a85fc);
+    color: #fff;
+    box-shadow: 0 0 15rpx #9c5ffe;    
+  }
