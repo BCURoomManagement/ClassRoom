@@ -304,6 +304,26 @@ Page({
         confirmText: '确定',
         confirmColor: "#77a9fb"
       })
+    }else{
+      var Daydata = this.data.year + "-" + this.data.month + "-" + this.data.selectDday;
+      var Classtime=new Array();
+      for (var i = this.data.Timebegin;i<=this.data.Timeend;i++){
+        Classtime.push(i);
+      }
+      console.log("传递的时间"+Classtime + Daydata);
+      wx.request({
+        url: '',
+          data: {
+            Daydata: Daydata,
+            time: Classtime
+          },
+          header: {
+              'content-type': 'application/json' // 默认值
+          },
+          success: function (res) {
+              console.log(res.data)
+          }
+      })
     }
   },
   /**

@@ -3,7 +3,6 @@ var API_URL = "";
 // @需要字段:用户姓名username  学部department 学号studentnumber
 // 学号可以为空
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -13,7 +12,7 @@ Page({
     department: null,
     studentnumber: null,
     islogin: false,
-    flag:true,
+    flag: true,
   },
 
   /**
@@ -28,20 +27,20 @@ Page({
     })
     console.log(this.data.username);
   },
-  ToSetup:function(){
+  ToSetup: function () {
     wx.redirectTo({
       url: '',
     })
   },
   go: function (event) {
-    if (this.data.islogin==false){
+    if (this.data.islogin == false) {
       wx.showModal({
         content: '请先登录',
         showCancel: false,
         confirmText: '确定',
         confirmColor: "#77a9fb"
       })
-    }else{
+    } else {
       wx.redirectTo({
         url: event.currentTarget.dataset.href
       })
@@ -60,10 +59,10 @@ Page({
     })
   },
   //登录
-  formBindsubmit: function (res){
-    var that=this;
+  formBindsubmit: function (res) {
+    var that = this;
     wx.request({
-        url: "http://localhost:8080/LognServlet" + "?userName=" + res.detail.value.userName + "&&userPwd=" + res.detail.value.userPwd,
+      url: "http://localhost:8080/LognServlet" + "?userName=" + res.detail.value.userName + "&&userPwd=" + res.detail.value.userPwd,
       header: {
         "Content-Type": "json"
       },
@@ -81,23 +80,24 @@ Page({
           })
         }
         else {
+          console.log("zzz")
           //全局变量赋值
-          app.Appuserinfo.username = e.data[0].name ,
-          app.Appuserinfo.department=e.data[0].department,
-          app.Appuserinfo.studentnumber=e.data[0].studentnumber,
-          app.Appuserinfo.islogin = true,
-          // app.Appuserinfo.username = "呆霸王",
-          // app.Appuserinfo.department = "zz",
-          // app.Appuserinfo.studentnumber = 123,
-          // app.Appuserinfo.islogin = true,
-          //登陆成功
-          that.setData({
-            flag: true,
-            username: app.Appuserinfo.username,
-            department: app.Appuserinfo.department,
-            studentnumber: app.Appuserinfo.studentnumber,
-            islogin: app.Appuserinfo.islogin,
-          })
+          app.Appuserinfo.username = e.data[0].name,
+            app.Appuserinfo.department = e.data[0].department,
+            app.Appuserinfo.studentnumber = e.data[0].studentnumber,
+            app.Appuserinfo.islogin = true,
+            // app.Appuserinfo.username = "呆霸王",
+            // app.Appuserinfo.department = "zz",
+            // app.Appuserinfo.studentnumber = 123,
+            // app.Appuserinfo.islogin = true,
+            //登陆成功
+            that.setData({
+              flag: true,
+              username: app.Appuserinfo.username,
+              department: app.Appuserinfo.department,
+              studentnumber: app.Appuserinfo.studentnumber,
+              islogin: app.Appuserinfo.islogin,
+            })
         }
       },
       fail: function (e) {
@@ -115,48 +115,48 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    
+
   }
 })

@@ -37,9 +37,9 @@ App({
     userInfo: null
   },
   Appuserinfo:{
-    username: '',
-    department: '',
-    studentnumber: '',
+    username: null,
+    department: null,
+    studentnumber:null,
     islogin: false,
   }
 })
