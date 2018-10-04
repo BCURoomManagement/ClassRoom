@@ -305,7 +305,7 @@ Page({
         confirmColor: "#77a9fb"
       })
     }else{
-      var Daydata = this.data.year + "." + this.data.month + "." + this.data.selectDday;
+      var Daydata = this.data.year + "" + this.data.month + "" + this.data.selectDday;
       var Classtime=new Array();
       for (var i = this.data.Timebegin;i<=this.data.Timeend;i++){
         Classtime.push(i);
