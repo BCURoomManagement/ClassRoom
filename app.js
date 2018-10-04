@@ -35,5 +35,11 @@ App({
   },
   globalData: {
     userInfo: null
+  },
+  Appuserinfo:{
+    username: '',
+    department: '',
+    studentnumber: '',
+    islogin: false,
   }
 })

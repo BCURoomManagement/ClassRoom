@@ -231,6 +231,7 @@ Page({
     } else if (this.data.checkBegin == false || this.data.checkEnd==true){
       this.setData({
         Timebegin: e.currentTarget.dataset.stime,
+        Timeend:'',
         timeList: timeList,
         checkBegin:true,
         checkEnd:false    

@@ -9,10 +9,10 @@ Page({
    */
   data: {
     userInfo: {},
-    username:null,
-    department:null,
+    username: null,
+    department: null,
     studentnumber: null,
-    islogin:false,
+    islogin: false,
     flag:true,
   },
 
@@ -20,7 +20,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-      
+    this.setData({
+      username: app.Appuserinfo.username,
+      department: app.Appuserinfo.department,
+      studentnumber: app.Appuserinfo.studentnumber,
+      islogin: app.Appuserinfo.islogin,
+    })
+    console.log(this.data.username);
   },
   ToSetup:function(){
     wx.redirectTo({
@@ -75,32 +81,33 @@ Page({
           })
         }
         else {
-          // app.Appusername.userinfo = { UN: e.data["0"].userName, UI: e.data["0"].userId, UP: e.data["0"].userPwd, UD: e.data["0"].userDep, UT: e.data["0"].userType, US: e.data["0"].userStatus }
+          //全局变量赋值
+          app.Appuserinfo.username = e.data[0].name ,
+          app.Appuserinfo.department=e.data[0].department,
+          app.Appuserinfo.studentnumber=e.data[0].studentnumber,
+          app.Appuserinfo.islogin = true,
+          // app.Appuserinfo.username = "呆霸王",
+          // app.Appuserinfo.department = "zz",
+          // app.Appuserinfo.studentnumber = 123,
+          // app.Appuserinfo.islogin = true,
           //登陆成功
           that.setData({
             flag: true,
-            username: e.data[0].name,
-            department: e.data[0].department,
-            studentnumber: e.data[0].studentnumber,
-            islogin: true,
+            username: app.Appuserinfo.username,
+            department: app.Appuserinfo.department,
+            studentnumber: app.Appuserinfo.studentnumber,
+            islogin: app.Appuserinfo.islogin,
           })
         }
       },
       fail: function (e) {
-        that.setData({
-          flag: true,
-          username: '呆霸王',
-          department: "信息",
-          studentnumber: 123456,
-          islogin: true,
+        wx.showModal({
+          title: '提示',
+          content: '连接服务器失败，请稍后再试！',
+          showCancel: false,
+          confirmText: '确定',
+          confirmColor: "#77a9fb"
         })
-        // wx.showModal({
-        //   title: '提示',
-        //   content: '连接服务器失败，请稍后再试！',
-        //   showCancel: false,
-        //   confirmText: '确定',
-        //   confirmColor: "#77a9fb"
-        // })
       },
     })
   },
