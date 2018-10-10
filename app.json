@@ -2,6 +2,7 @@
   "pages":[
     "pages/index/index",
     "pages/timeselect/timeselect",
+        
     "pages/roomselect/roomselect",
     "pages/introduce/introduce",
     "pages/logs/logs",

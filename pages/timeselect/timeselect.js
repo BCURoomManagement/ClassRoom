@@ -306,9 +306,12 @@ Page({
       })
     }else{
       var Daydata = this.data.year + "-" + this.data.month + "-" + this.data.selectDday;
-      var Classtime=new Array();
+      var Classtime=new Array(15);
+      for(var j = 0; j < Classtime.length;j++){
+        Classtime[j]=0;
+      }
       for (var i = this.data.Timebegin;i<=this.data.Timeend;i++){
-        Classtime.push(i);
+        Classtime[i]=1;
       }
       console.log("传递的时间"+Classtime + Daydata);
       wx.request({
