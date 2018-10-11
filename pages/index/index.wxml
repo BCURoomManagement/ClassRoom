@@ -36,7 +36,7 @@
         </view>
       </view>
       <view class='select-container-right'>
-        <view class='right-sao'>
+        <view class='right-sao' bindtap='code'>
           <text class='select-text2'>扫一扫</text>
           <image src='../../images/right-sao-img.png'></image>
         </view>

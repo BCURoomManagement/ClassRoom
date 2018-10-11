@@ -14,7 +14,30 @@ Page({
     islogin: false,
     flag: true,
   },
-
+    code: function () {
+        var that = this
+        wx.scanCode({
+            onlyFromCamera: true, //仅仅相机
+            success: (res) => {
+                console.log(res)
+            },
+            //错误返回 
+            fail: (res) => {
+                wx.showToast({
+                    title: 'fail',
+                    icon: 'none',
+                    duration: 1000
+                })
+            },
+            complete: function (res) {
+                wx.showToast({
+                    title: 'complete',
+                    icon: 'none',
+                    duration: 1000
+                })
+            },
+        })
+    },
   /**
    * 生命周期函数--监听页面加载
    */

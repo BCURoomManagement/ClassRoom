@@ -1,21 +1,20 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/timeselect/timeselect",
-        
-    "pages/roomselect/roomselect",
-    "pages/introduce/introduce",
-    "pages/logs/logs",
-    "pages/demo/demo",
-    "pages/question/question",
-    "pages/record/record",
-    "pages/imfoopen/imfoopen"
-  ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black",
-    "navigationStyle": "custom"
-  }
+    "pages": [
+        "pages/index/index",
+        "pages/timeselect/timeselect",
+        "pages/roomselect/roomselect",
+        "pages/introduce/introduce",
+        "pages/logs/logs",
+        "pages/demo/demo",
+        "pages/question/question",
+        "pages/record/record",
+        "pages/imfoopen/imfoopen"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black",
+        "navigationStyle": "custom"
+    }
 }
