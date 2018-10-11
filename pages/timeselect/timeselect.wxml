@@ -32,6 +32,7 @@
         </view>
     </view>
     <view class='show-time' wx:if="{{Timebegin}}">时间：{{timeList[Timebegin-1].start}}-{{timeList[Timeend-1].end}}</view>
+    
     <view class='submit-time' style='margin: {{submitT}}rpx auto;' bindtap='submitT'>确 认</view>
   </view>
   <view class='text2' hidden='{{flag2}}'>222</view>
