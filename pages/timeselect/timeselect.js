@@ -398,9 +398,10 @@ Page({
             }
             console.log("传递的时间" + Classtime + Daydata);
             wx.request({
-                url: '',
-                // url: 'http://localhost:8080/ClassTimeServlet',
+                //url: '',
+                url: 'http://localhost:8080/ClassTimeServlet',
                 data: {
+                    type:1,
                     Daydata: Daydata,
                     time: Classtime
                 },
