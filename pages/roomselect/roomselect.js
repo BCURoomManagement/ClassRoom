@@ -49,6 +49,30 @@ Page({
     //           console.log(res.data)
     //       }
     //   })
+    //   wx.request({
+    //       url: 'http://localhost:8080/IndexServlet',
+    //       data: {
+    //           te: 2
+    //       },
+    //       header: {
+    //           'content-type': 'application/json' // 默认值
+    //       },
+    //       success: function (res) {
+    //           console.log(res.data)
+    //       }
+    //   })
+    //   wx.request({
+    //       url: 'http://localhost:8080/IndexServlet',
+    //       data: {
+    //           te: 3
+    //       },
+    //       header: {
+    //           'content-type': 'application/json' // 默认值
+    //       },
+    //       success: function (res) {
+    //           console.log(res.data)
+    //       }
+    //   })
   },
   /**
      * 滑动切换tab
