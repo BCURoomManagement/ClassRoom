@@ -8,7 +8,8 @@
         "pages/demo/demo",
         "pages/question/question",
         "pages/record/record",
-        "pages/imfoopen/imfoopen"
+        "pages/imfoopen/imfoopen",
+        "pages/serchType/serchType"
     ],
     "window": {
         "backgroundTextStyle": "light",
