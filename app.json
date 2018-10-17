@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/serchType/serchType",
         "pages/index/index",
         "pages/timeselect/timeselect",
         "pages/roomselect/roomselect",
@@ -8,8 +9,9 @@
         "pages/demo/demo",
         "pages/question/question",
         "pages/record/record",
-        "pages/imfoopen/imfoopen",
-        "pages/serchType/serchType"
+        
+        "pages/imfoopen/imfoopen"
+        
     ],
     "window": {
         "backgroundTextStyle": "light",
