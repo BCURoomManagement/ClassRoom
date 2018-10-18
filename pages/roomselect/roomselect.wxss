@@ -1,14 +1,4 @@
 /* pages/roomselect/roomselect.wxss */
-.topbar{
-  position: fixed;
-}
-.topbar image{
-  width: 64rpx;
-  height: 64rpx;
-  padding-top: 100px;
-  /* margin-top: -180rpx; */
-  margin-left: 20rpx;
-}
 .body{
   background:linear-gradient(#ffbc5b 0%,#fe6638 100%);
   width: 100%;

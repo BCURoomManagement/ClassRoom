@@ -1,37 +1,27 @@
 /* pages/serchType/serchType.wxss */
+.topbar-bg{
+  margin-top: -100rpx;
+} 
+.topbar-bg image{
+  width: 100%;
+  z-index: 1;
+}
 
 .view1 {
-    height: 1334rpx;
-    width: 750rpx;
+    width: 100%;
     background: white;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: -250rpx;
+    z-index: 10;
 }
-
 .view2 {
-    border-radius: 20px;
-    margin-top: 200rpx;
-    height: 246rpx;
-    width: 656rpx;
-    background: linear-gradient(to top  right,#ac4cff 0%, #9666fe 100%);
-}
-
-.view3 {
-    border-radius: 20px;
+    border-radius: 20rpx;
     margin-top: 40rpx;
     height: 246rpx;
     width: 656rpx;
-    background: linear-gradient(to top  right,#ac4cff 0%, #9666fe 100%);
-}
-
-.view4 {
-    border-radius: 20px;
-    margin-top: 40rpx;
-    height: 246rpx;
-    width: 656rpx;
-    background: linear-gradient(to top  right,#ac4cff 0%, #9666fe 100%);
-    
+    background: linear-gradient(to right bottom, #D587FF 0%,#9666fe 100%);
 }
 
 .text1 {

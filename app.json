@@ -1,17 +1,16 @@
 {
     "pages": [
-        
         "pages/index/index",
-        "pages/timeselect/timeselect",
+        "pages/oneroomlist/oneroomlist",
         "pages/roomselect/roomselect",
+        "pages/serchType/serchType",
+        "pages/timeselect/timeselect",
         "pages/introduce/introduce",
         "pages/logs/logs",
         "pages/demo/demo",
         "pages/question/question",
         "pages/record/record",
-        "pages/serchType/serchType",
         "pages/imfoopen/imfoopen"
-        
     ],
     "window": {
         "backgroundTextStyle": "light",

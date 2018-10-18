@@ -118,8 +118,9 @@ Page({
         //标记开始结束时间是否选择
         checkBegin: false,
         checkEnd: false,
-        flagtime: true,
+        flagtime: false,
         submitT: 200,
+        roomtype:null,
     },
 
     /**
@@ -128,7 +129,13 @@ Page({
     onLoad: function(options) {
         this.dataTime();
         this.showdataTime();
+      var thisday = this.data.getDate;
         console.log(this.data.timeList)
+        this.setData({
+          roomtype: options.roomtype,
+          selectDday: thisday,
+        })
+      console.log("roomtyperoomtyperoomtype" + this.data.roomtype);
         // console.log(this.data.arr)
     },
     changeimg: function() {
@@ -397,6 +404,15 @@ Page({
             for (var i = this.data.Timebegin; i <= this.data.Timeend; i++) {
                 Classtime[i] = 1;
             }
+            
+            //跳转
+          // + "&roomdata=" + res.data,
+          let roomtypestr = this.data.roomtype;
+          let urlgo = '../oneroomlist/oneroomlist?roomtype=' + roomtypestr;
+          wx.redirectTo({
+            url: urlgo
+          })
+          
             console.log("传递的时间" + Classtime + Daydata);
             wx.request({
                 //url: '',
@@ -410,8 +426,17 @@ Page({
                     'content-type': 'application/json' // 默认值
                 },
                 success: function(res) {
-                    console.log(res.data)
-                }
+                  console.log("res"+res.data)
+                },
+                fail: function (e) {
+                  // wx.showModal({
+                  //   title: '提示',
+                  //   content: '连接服务器失败，请稍后再试！',
+                  //   showCancel: false,
+                  //   confirmText: '确定',
+                  //   confirmColor: "#77a9fb"
+                  // })
+                },
             })
         }
     },

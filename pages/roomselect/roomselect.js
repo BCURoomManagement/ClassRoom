@@ -98,6 +98,11 @@ Page({
       })
     }
   },
+  go:function(e){
+    wx.redirectTo({
+      url: '../timeselect/timeselect',
+    })
+  },
   //弹出层
   show:function(e){
     this.setData({ 

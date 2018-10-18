@@ -5,11 +5,14 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+      array:[{name:"大数据学院",type:"1"}, { name: "多媒体教室", type: "2" }, { name:"普通教室",type:"3"}]
     },
     go: function(event) {
+      let roomtype = event.currentTarget.dataset.type;
+      let typestr = JSON.stringify(roomtype);
+      let urlgo = event.currentTarget.dataset.href + "?roomtype=" +typestr;
         wx.redirectTo({
-            url: event.currentTarget.dataset.href
+          url: urlgo,
         })
 
     },
