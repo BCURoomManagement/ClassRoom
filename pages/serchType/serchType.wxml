@@ -1,17 +1,17 @@
 <!--pages/serchType/serchType.wxml-->
 <!-- 656 246 -->
 <view class='view1'>
-    <view class='view2'>
+    <view class='view2' data-href='../timeselect/timeselect' bindtap='go'>
         <view class='text1'>
             <text>大数据学院</text>
         </view>
     </view>
-    <view class='view3'>
+    <view class='view3' data-href='../timeselect/timeselect' bindtap='go'>
         <view class='text1'>
             <text>多媒体教室</text>
         </view>
     </view>
-    <view class='view4'>
+    <view class='view4' data-href='../timeselect/timeselect' bindtap='go'>
         <view class='text1'>
             <text>普通教室</text>
         </view>
