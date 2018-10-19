@@ -1,6 +1,6 @@
 <!--pages/oneroomsure/oneroomsure.wxml-->
 <backbar gohref="../oneroomlist/oneroomlist" paddingtop="115" margintop="0" imgcolor="back-grey"></backbar>
-<view class='body'>
+<view class='body' style='hide:{{screenheight}}rpx'>
   <view class='modal-body'>
     <view class='modal-bottom'>
        <view class='modal-bottom-patr1'>

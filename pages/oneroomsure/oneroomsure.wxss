@@ -1,12 +1,13 @@
 /* pages/oneroomsure/oneroomsure.wxss */
 .body{
   background: linear-gradient(to top  right,#ac4cff 0%, #9666fe 100%);
-  width: 100%;
+  width: 100vw;
   margin-top: -78px;
   padding-top: 80px;
   padding-bottom: 50px;
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
   .modal-body{
   margin-top: 150rpx;
