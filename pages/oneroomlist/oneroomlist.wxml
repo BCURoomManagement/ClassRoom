@@ -1,7 +1,7 @@
 <!--pages/oneroomlist/oneroomlist.wxml-->
-<backbar gohref="../timeselect/timeselect" paddingtop="115" margintop="0" imgcolor="back-grey"></backbar>
-<view class='body' style='height:{{items<3?"752":""}}rpx'>
-  <view class='container' style='height:{{items<3?"550":""}}rpx'>
+<backbar gohref="../oneroomsure/oneroomsure" paddingtop="115" margintop="0" imgcolor="back-grey"></backbar>
+<view class='body' style='height:{{items<3?screenheight*2:""}}rpx'>
+  <view class='container2'style="height:{{items==0?0:(items<3?items*580:'')}}rpx">
     <view class='room-yd-view' wx:for="{{array1}}" data-item='{{item}}' bindtap='show'>
       <view class='room-img'>
         <image src='{{item.roomimg}}'></image>

@@ -8,7 +8,11 @@
   display: flex;
   flex-direction: row;
 }
-.container{
+.container2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
   margin-top: 150rpx;
   margin-left: auto;
   margin-right: auto;
@@ -17,9 +21,11 @@
   border-radius: 20rpx;
   padding: 50rpx 0;
   /* height: 1800rpx; */
-  padding-bottom: 30rpx;
 }
+
+
 .room-yd-view{
+  margin-top: 20rpx;
   margin-bottom: 40rpx;
   border-radius: 20rpx;
   width: 610rpx;

@@ -9,6 +9,7 @@ Page({
     array1: [{
       roomname: " 大数据学院119", roomplace: "3号实训楼1层北侧", roompeople: 40, roomimg: "../../images/room1.png", wifi: false, ty: true, jsj: true, key: true, network: false, tv: true, studentcomputer: false, desk: false, ytj: false, hy: true, kt: false, gddesk: true
     }],
+    screenheight: wx.getSystemInfoSync().windowHeight,
     flag1: true,
     flag2: false,
     selectjson: null,
@@ -21,10 +22,11 @@ Page({
   onLoad: function (options) {
    
     this.setData({
-      items: this.data.array1.length
-      // roomtype: options.roomtype
+      items: this.data.array1.length,
+      roomjson: options.roomjson
     })
-    console.log(this.data.items)
+    console.log(this.data.screenheight+"xxxxxxxx")
+    console.log(this.data.roomjson)
   },
 
   /**

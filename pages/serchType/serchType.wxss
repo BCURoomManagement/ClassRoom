@@ -21,7 +21,7 @@
     margin-top: 40rpx;
     height: 246rpx;
     width: 656rpx;
-    background: linear-gradient(to right bottom, #D587FF 0%,#9666fe 100%);
+    background: linear-gradient(to right bottom, #ac4bff 0%,#9666fe 100%);
 }
 
 .text1 {

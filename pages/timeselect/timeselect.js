@@ -404,15 +404,6 @@ Page({
             for (var i = this.data.Timebegin; i <= this.data.Timeend; i++) {
                 Classtime[i] = 1;
             }
-            
-            //跳转
-          // + "&roomdata=" + res.data,
-          let roomtypestr = this.data.roomtype;
-          let urlgo = '../oneroomlist/oneroomlist?roomtype=' + roomtypestr;
-          wx.redirectTo({
-            url: urlgo
-          })
-          
             console.log("传递的时间" + Classtime + Daydata);
             wx.request({
                 //url: '',
@@ -426,7 +417,12 @@ Page({
                     'content-type': 'application/json' // 默认值
                 },
                 success: function(res) {
-                  console.log("res"+res.data)
+                  let roomjson = JSON.stringify(res.data);
+                  console.log(typeof(roomjson))
+                  let urlgo = '../oneroomlist/oneroomlist?roomjson='+roomjson;
+                  wx.redirectTo({
+                    url: urlgo
+                  })
                 },
                 fail: function (e) {
                   // wx.showModal({

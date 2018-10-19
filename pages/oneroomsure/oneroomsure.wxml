@@ -1,0 +1,118 @@
+<!--pages/oneroomsure/oneroomsure.wxml-->
+<backbar gohref="../oneroomlist/oneroomlist" paddingtop="115" margintop="0" imgcolor="back-grey"></backbar>
+<view class='body'>
+  <view class='modal-body'>
+    <view class='modal-bottom'>
+       <view class='modal-bottom-patr1'>
+        <view class='part1-name'>大数据学院109</view>
+        <view class='part1-place'>3号实训楼</view>
+       </view>
+       <view class='modal-bottom-part2'>
+          <view class='part2-view1'>基础设施</view>
+          <view class='part2-view1 view2'>可容纳{{selectjson.roompeople}}人</view>
+       </view>
+       <view class='modal-bottom-part3'>
+          <ul>
+            <li>
+              <view class="part3-icon" >
+                <image src='../../images/sb01.png'></image>
+                WiFi
+              </view>
+              <view class="part3-icon" wx:if="{{selectjson.wifi}}">
+                <image src='../../images/sb02.png'></image>
+                投影
+              </view>
+              <view class="part3-icon" wx:if="{{selectjson.wifi}}">
+                <image src='../../images/sb03.png'></image>
+                教室机
+              </view>
+              <view class="part3-icon " wx:if="{{selectjson.wifi}}">
+                <image src='../../images/sb04.png'></image>
+                门禁锁
+              </view>
+            </li>
+            <li>
+              <view class="part3-icon" wx:if="{{selectjson.wifi}}">
+                <image src='../../images/sb05.png'></image>
+                有线网络
+              </view>
+              <view class="part3-icon" wx:if="{{selectjson.wifi}}">
+                <image src='../../images/sb06.png' ></image>
+                触屏电视
+              </view>
+              <view class="part3-icon " wx:if="{{selectjson.wifi}}">
+                <image src='../../images/sb07.png'></image>
+                学生电脑
+              </view>
+              <view class="part3-icon" wx:if="{{selectjson.wifi}}" >
+                <image src='../../images/sb08.png'></image>
+                活动书桌
+              </view>
+            </li>
+            <li>
+              <view class="part3-icon" >
+                <image src='../../images/sb09.png'></image>
+                一体机
+              </view>
+              <view class="part3-icon">
+                <image src='../../images/sb10.png' ></image>
+                会议系统
+              </view>
+              <view class="part3-icon">
+                <image src='../../images/sb11.png'></image>
+                空调
+              </view>
+              <view class="part3-icon ">
+                <image src='../../images/sb12.png' ></image>
+                固定桌椅
+              </view>
+            </li>
+          </ul>
+       </view>
+    </view>
+  </view>
+  <view class='model-detail'>
+    <view class='modal-conten1'>
+      <view class='model-icon'></view>
+      <view class='model-title'>信息填写</view>
+    </view>
+    <view class='model-input'>
+      <view class='model-inputuse'>
+        <text>用途</text>
+        <input placeholder='请输入教室用途' hidden='{{zindex}}'></input>
+      </view>
+      <view class='model-inputuse phone'>
+        <text>电话</text>
+        <input placeholder='请输入您的电话号码' type='number' hidden='{{zindex}}'></input>
+      </view>
+    </view>
+    <view class='modal-conten1'>
+      <view class='model-icon2'></view>
+      <view class='model-title'>日期时间</view>
+    </view>
+      <view class='model-content2detail'>
+        <text class='detail-title'>日期<text class='detail-value'>2018-10-18</text></text>
+        <view class='detail-tiao'></view>
+         <text class='detail-title'>时间<text class='detail-value'>12:00-14:00</text></text>
+        <view class='detail-tiao'></view>
+      </view>
+    <view class='modal-conten1 modal-conten2'>
+      <view class='model-icon3'></view>
+      <view class='model-title'>注意事项</view>
+    </view>
+      <view class='model-content2detail detail3'>
+        <p>确认后不可修改信息</p>
+        <p>借用审批通过后可以在借用记录里查看借用信息</p>
+        <p>在借用日期前可以取消教室预约</p>
+      </view>
+     <view class='submit-time' bindtap='submitT'>确 认</view>
+  </view>
+</view>
+<view class='model-box-sure' hidden="{{flag1}}" catchtouchmove='true'>
+  <view class='box-sure-bg'>
+  <image src='../../images/sure.png'></image>
+   <text class='sure-success'>预约成功</text>
+   <text class='sure-ts'>可以在借用记录中查看预约信息</text>
+    <view class='submit-time-sure' bindtap="hide" >查看记录</view>
+  </view>
+</view>

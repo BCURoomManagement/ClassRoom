@@ -1,5 +1,7 @@
 {
     "pages": [
+        
+        "pages/oneroomsure/oneroomsure",
         "pages/index/index",
         "pages/oneroomlist/oneroomlist",
         "pages/roomselect/roomselect",
