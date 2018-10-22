@@ -63,15 +63,15 @@ Page({
       console.log(username +"sroomid")
       wx.request({
         //url: '',
-        url: 'http://localhost:8080/CanleServlet',
+        url: 'http://localhost:8080/SubmitServlet',
         data: {
           sroomid: sroomid,
           sDaydata: sDaydata,
           sClasstime: sClasstime,
           timestamp:timestamp,
           username: username,
-          // use: use,
-          // phone:phone
+          use: use,
+          phone:phone
         },
         header: {
           'content-type': 'application/json' // 默认值
