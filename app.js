@@ -39,6 +39,7 @@ App({
     username: null,
     department: null,
     studentnumber:null,
-    islogin: true,
+    islogin: false,
+    userid:null,
   }
 })

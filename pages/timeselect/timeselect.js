@@ -397,6 +397,12 @@ Page({
             })
         } else {
             var Daydata = this.data.year + "" + this.data.month + "" + this.data.selectDday;
+            var Ddata = this.data.year + "-" + this.data.month + "-" + this.data.selectDday;
+            var sinfonia=new Array();
+          sinfonia.push(Ddata);
+          sinfonia.push(this.data.timeList[this.data.Timebegin - 1].start);
+          sinfonia.push(this.data.timeList[this.data.Timeend - 1].end);
+            var Ddata = this.data.year + "-" + this.data.month + "-" + this.data.selectDday;
             var Classtime = new Array(15);
             for (var j = 0; j < Classtime.length; j++) {
                 Classtime[j] = 0;
@@ -419,7 +425,7 @@ Page({
                 success: function(res) {
                   let roomjson = JSON.stringify(res.data);
                   console.log(typeof(roomjson))
-                  let urlgo = '../oneroomlist/oneroomlist?roomjson='+roomjson;
+                  let urlgo = '../oneroomlist/oneroomlist?roomjson=' + roomjson + "&Daydata=" + Daydata + "&Classtime=" + Classtime + "&sinfonia=" + sinfonia;
                   wx.redirectTo({
                     url: urlgo
                   })

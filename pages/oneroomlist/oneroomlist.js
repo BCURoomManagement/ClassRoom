@@ -6,26 +6,35 @@ Page({
    */
   data: {
     roomtype:null,
-    array1: [{
-      roomname: " 大数据学院119", roomplace: "3号实训楼1层北侧", roompeople: 40, roomimg: "../../images/room1.png", wifi: false, ty: true, jsj: true, key: true, network: false, tv: true, studentcomputer: false, desk: false, ytj: false, hy: true, kt: false, gddesk: true
-    }],
+    // array1: [{
+    //   roomname: " 大数据学院119", roomplace: "3号实训楼1层北侧", roompeople: 40, roomimg: "../../images/room1.png", wifi: false, ty: true, jsj: true, key: true, network: false, tv: true, studentcomputer: false, desk: false, ytj: false, hy: true, kt: false, gddesk: true
+    // },
+    //   {
+    //     roomname: " 大数据学院119", roomplace: "3号实训楼1层北侧", roompeople: 40, roomimg: "../../images/room1.png", wifi: false, ty: true, jsj: true, key: true, network: false, tv: true, studentcomputer: false, desk: false, ytj: false, hy: true, kt: false, gddesk: true
+    //   }],
     screenheight: wx.getSystemInfoSync().windowHeight,
     flag1: true,
     flag2: false,
     selectjson: null,
     items:null,
+    roomjson:null,
+    roomtypename:["","大数据学院","多媒体教室","普通教室"],
+    Daydata:null,
+    Classtime:null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
     this.setData({
-      items: this.data.array1.length,
-      roomjson: options.roomjson
+      roomjson: JSON.parse(options.roomjson),
+      items: JSON.parse(options.roomjson).length,
+      Daydata: options.Daydata,
+      Classtime: options.Classtime,
+      sinfonia: options.sinfonia,
     })
-    console.log(this.data.screenheight+"xxxxxxxx")
+    console.log(this.data.Daydata + "xxxxxxxx" + this.data.Classtime)
     console.log(this.data.roomjson)
   },
 
@@ -36,8 +45,15 @@ Page({
 
   },
   go: function (e) {
+    if (this.data.selectjson==null){
+      this.setData({
+        selectjson: this.data.roomjson[e.currentTarget.dataset.bindex],
+      })
+      console.log("zzzzzddddddddd"+typeof (this.data.selectjson))
+    }
+    let selectData = JSON.stringify(this.data.selectjson);
     wx.redirectTo({
-      url: '../timeselect/timeselect',
+      url: '../oneroomsure/oneroomsure?selectData=' + selectData + "&Daydata=" + this.data.Daydata + "&Classtime=" + this.data.Classtime + "&sinfonia=" + this.data.sinfonia,
     })
   },
   //弹出层

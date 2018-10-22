@@ -1,7 +1,35 @@
 <!--pages/record/record.wxml-->
-<view class="container">
-    <text>{{motto}}</text>
-    <scroll-view scroll-y>
-    </scroll-view>
+<backbar gohref="../index/index" paddingtop="85" margintop="0" imgcolor="back-grey"></backbar>
+  <view class='topbar-bg' >
+    <image src='../../images/index-bar-bg3.png' ></image>
+  </view>
+<view class='view1' >
+  <view class='view-title'>
+    <view class='view-content1'>
+      <view class='view-content1-left'>
+        <text class='left-text'>我的借用记录</text>
+        <text class='left-count'>共{{recordlist.length}}次</text>
+      </view>
+      <view class='view-content-right'>
+       <open-data type="userAvatarUrl" class="head-img"></open-data>
+      </view>
+    </view>
+    <view class='view-tao'></view>
+    <view class='view-count-text'>
+      <text>大数据学院1次  </text>
+      <text style='margin-right:15rpx;'>多媒体教室2次  </text>
+      <text>普通教室1次  </text>
+    </view>
+    <view class='view-shadow'></view>
+  </view>
+    <view class='view2' style='background:{{typecolor[0]}}' wx:for="{{recordlist}}"  data-href='../timeselect/timeselect' data-type="{{item.type}}" wx:for-index="bindex" >
+        <view class='text1'>
+            <text>{{item.roomid}}</text>
+            <text class='text-place'>日期: {{item.data}} 时间: 14:20-16:20</text>
+        </view>
+        <view class='text2' data-bindex="{{bindex}}" bindtap='godetail'>
+          <text>查看</text>
+          <image src='../../images/more.png'></image>
+        </view>
+    </view>
 </view>
-

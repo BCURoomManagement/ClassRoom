@@ -5,14 +5,25 @@ Page({
      * 页面的初始数据
      */
     data: {
-      array:[{name:"大数据学院",type:"1"}, { name: "多媒体教室", type: "2" }, { name:"普通教室",type:"3"}]
+      array: [{ name: "大数据学院", type: "1", color: "linear-gradient(to right bottom, #D486FF 0%,#9666fe 100%)" }, { name: "多媒体教室", type: "2", color: "linear-gradient(to right bottom, #FFBA96 0%,#FF7A95 100%)" }, { name: "普通教室", type: "3", color:"linear-gradient(to right bottom, #33CAFF 0%,#2A85FC 100%)"}]
     },
     go: function(event) {
       let roomtype = event.currentTarget.dataset.type;
       let typestr = JSON.stringify(roomtype);
       let urlgo = event.currentTarget.dataset.href + "?roomtype=" +typestr;
-        wx.redirectTo({
-          url: urlgo,
+        wx.request({
+          url: 'http://localhost:8080/IndexServlet',
+          data: {
+            type: roomtype,
+          },
+          header: {
+            'content-type': 'application/json' // 默认值
+          },
+          success: function (res) {
+            wx.redirectTo({
+              url: urlgo,
+            });
+          },
         })
 
     },

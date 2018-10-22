@@ -1,5 +1,5 @@
-<!--pages/oneroomsure/oneroomsure.wxml-->
-<backbar gohref="../oneroomlist/oneroomlist" paddingtop="115" margintop="0" imgcolor="back-grey"></backbar>
+<!--pages/roomdetail/roomdetail.wxml-->
+<backbar gohref="../record/record" paddingtop="115" margintop="0" imgcolor="back-grey"></backbar>
 <view class='body' style='hide:{{screenheight}}rpx'>
   <view class='modal-body'>
     <view class='modal-bottom'>
@@ -74,60 +74,44 @@
   <view class='model-detail'>
     <view class='modal-conten1'>
       <view class='model-icon'></view>
-      <view class='model-title'>信息填写</view>
+      <view class='model-title'>相关信息</view>
     </view>
     <view class='model-input'>
-      <view class='model-inputuse'>
-        <text>用途</text>
-        <input placeholder='请输入教室用途' hidden='{{zindex}}' name='useruse' bindinput="getUse"></input>
+     <view class='model-inputuse data-sure'>
+        <text class='detail-title'>日期</text>
+        <text class='detail-value'>{{sinfonia[0]}}zz</text>
       </view>
-      <view class='model-inputuse phone'>
+      <view class='model-inputuse time-sure'>
+         <text class='detail-title'>时间</text>
+         <text class='detail-value'>{{sinfonia[1]}}-{{sinfonia[2]}}dd</text>
+      </view>
+      <view class='model-inputuse data-sure'>
+        <text>用途</text>
+        <text class='detail-value'>zzz</text>
+      </view>
+      <view class='model-inputuse phone time-sure'>
         <text>电话</text>
-        <input placeholder='请输入您的电话号码' type='number' hidden='{{zindex}}' name='userphone' bindinput="getPhone"></input>
+         <text class='detail-value'>第三方</text>
       </view>
     </view>
     <view class='modal-conten1'>
       <view class='model-icon2'></view>
-      <view class='model-title'>日期时间</view>
+      <view class='model-title'>审核状态</view>
     </view>
-      <view class='model-content2detail'>
-      <view class='model-inputuse data-sure'>
-        <text class='detail-title'>日期</text>
-        <text class='detail-value'>{{sinfonia[0]}}</text>
-      </view>
-      <view class='model-inputuse time-sure'>
-         <text class='detail-title'>时间</text>
-         <text class='detail-value'>{{sinfonia[1]}}-{{sinfonia[2]}}</text>
-      </view>
-
-      </view>
-    <view class='modal-conten1 modal-conten2'>
+    <view class='model-input model-ispass'>
+      <text style='color:{{pass==1?"#EEEE00":""}};'>审核中</text>
+      <text style='color:{{pass==2?"#6BB92F":""}};'>已通过</text>
+      <text style='color:{{pass==3?"red":""}};'>未通过</text>
+    </view>
+    <view class='modal-conten1 modal-conten2' wx:if="{{isfinish}}">
       <view class='model-icon3'></view>
       <view class='model-title'>注意事项</view>
     </view>
-      <view class='model-content2detail detail3'>
-        <p>确认后不可修改信息</p>
-        <p>借用审批通过后可以在借用记录里查看借用信息</p>
-        <p>在借用日期前可以取消教室预约</p>
+      <view class='model-content2detail detail3' wx:if="{{isfinish}}">
         <p>请小心使用教室内设备,防止损坏</p>
+        <p>在借用日期前可以取消教室预约</p>
       </view>
-     <view class='submit-time' bindtap='submitT'>确 认</view>
+     <view class='submit-time' bindtap='submitT' wx:if="{{isfinish}}">取消预约</view>
   </view>
 </view>
-<view class='model-box-sure' hidden="{{flag1}}" catchtouchmove='true'>
-  <view class='box-sure-bg' hidden='{{!isexist}}'>
-  <image src='../../images/close.png' class='modal-body-cha' bindtap='goindex'></image>
-  <image src='../../images/sure.png' class='modal-body-icon' ></image>
-   <text class='sure-success'>预约成功</text>
-   <text class='sure-ts'>可以在借用记录中查看预约信息</text>
-    <view class='submit-time-sure' bindtap="hide" >查看记录</view>
-  </view>
-  <!-- 借用失败 -->
-  <view class='box-sure-bg' hidden='{{isexist}}'>
-    <image src='../../images/close.png' class='modal-body-cha'bindtap='goindex' ></image>
-    <image src='../../images/sure-no.png' class='modal-body-icon'></image>
-    <text class='sure-success sure-success-no'>预约失败</text>
-    <text class='sure-ts sure-ts-no'>该教室此时间段可能已被借用</text>
-  <view class='submit-time-sure' bindtap="rehide" >重新选择教室</view>
-  </view>
-</view>
+

@@ -13,6 +13,7 @@ Page({
     studentnumber: null,
     islogin: false,
     flag: true,
+    userid:null
   },
     code: function () {
         var that = this
@@ -84,6 +85,10 @@ Page({
   //登录
   formBindsubmit: function (res) {
     var that = this;
+    that.setData({
+      userid: res.detail.value.userName
+    })
+    console.log("userid" + that.data.userid);
     wx.request({
       url: "http://localhost:8080/LognServlet" + "?userName=" + res.detail.value.userName + "&&userPwd=" + res.detail.value.userPwd,
       header: {
@@ -105,6 +110,7 @@ Page({
         else {
           console.log("zzz")
           //全局变量赋值
+          app.Appuserinfo.userid = that.data.userid,
           app.Appuserinfo.username = e.data[0].name,
             app.Appuserinfo.department = e.data[0].department,
             app.Appuserinfo.studentnumber = e.data[0].studentnumber,
