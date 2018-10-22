@@ -60,7 +60,7 @@ Page({
       var use = this.data.use;
       var phone = this.data.phone;
       var that = this;
-      console.log(username +"sroomid")
+      console.log(this.data.sinfonia[3] +"sroomidzzzzzzzzzz")
       wx.request({
         //url: '',
         url: 'http://localhost:8080/SubmitServlet',
@@ -71,7 +71,9 @@ Page({
           timestamp:timestamp,
           username: username,
           use: use,
-          phone:phone
+          phone:phone,
+          ftime :sinfonia[3],
+          ltime: sinfonia[4]
         },
         header: {
           'content-type': 'application/json' // 默认值

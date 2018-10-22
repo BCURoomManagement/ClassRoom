@@ -16,9 +16,9 @@
     </view>
     <view class='view-tao'></view>
     <view class='view-count-text'>
-      <text>大数据学院1次  </text>
+      <!-- <text>大数据学院1次  </text>
       <text style='margin-right:15rpx;'>多媒体教室2次  </text>
-      <text>普通教室1次  </text>
+      <text>普通教室1次  </text> -->
     </view>
     <view class='view-shadow'></view>
   </view>
@@ -28,7 +28,7 @@
             <text class='text-place'>日期: {{item.data}} 时间: 14:20-16:20</text>
         </view>
         <view class='text2' data-bindex="{{bindex}}" bindtap='godetail'>
-          <text>查看</text>
+          <!-- <text>查看</text> -->
           <image src='../../images/more.png'></image>
         </view>
     </view>

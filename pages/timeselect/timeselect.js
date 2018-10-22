@@ -402,6 +402,8 @@ Page({
           sinfonia.push(Ddata);
           sinfonia.push(this.data.timeList[this.data.Timebegin - 1].start);
           sinfonia.push(this.data.timeList[this.data.Timeend - 1].end);
+          sinfonia.push(this.data.Timebegin);
+          sinfonia.push(this.data.Timeend);
             var Ddata = this.data.year + "-" + this.data.month + "-" + this.data.selectDday;
             var Classtime = new Array(15);
             for (var j = 0; j < Classtime.length; j++) {

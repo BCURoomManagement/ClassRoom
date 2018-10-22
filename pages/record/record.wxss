@@ -107,7 +107,7 @@ page{
 }
 .text2{
   margin-top: 60rpx;
-  margin-right: 13rpx;
+  margin-right: 18rpx;
   z-index: 10;
   display: flex;
   flex-direction: row;
