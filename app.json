@@ -1,9 +1,9 @@
 {
     "pages": [
-      "pages/roomdetail/roomdetail",
         "pages/index/index",
         "pages/record/record",
         "pages/timeselect/timeselect",
+        "pages/roomdetail/roomdetail",
         "pages/oneroomsure/oneroomsure",     
         "pages/roomselect/roomselect",
         "pages/oneroomlist/oneroomlist",
