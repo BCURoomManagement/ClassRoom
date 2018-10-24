@@ -413,11 +413,12 @@ Page({
                 Classtime[i] = 1;
             }
             console.log("传递的时间" + Classtime + Daydata);
+          var roomtype = this.data.roomtype;
             wx.request({
                 //url: '',
                 url: 'http://localhost:8080/ClassTimeServlet',
                 data: {
-                    type:1,
+                    type: roomtype,
                     Daydata: Daydata,
                     time: Classtime
                 },
