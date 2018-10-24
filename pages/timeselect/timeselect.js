@@ -414,6 +414,8 @@ Page({
             }
             console.log("传递的时间" + Classtime + Daydata);
           var roomtype = this.data.roomtype;
+            
+            console.log(roomtype);
             wx.request({
                 //url: '',
                 url: 'http://localhost:8080/ClassTimeServlet',
