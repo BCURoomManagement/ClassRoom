@@ -12,7 +12,6 @@ Page({
         selectData: null,
         use: null,
         phone: null,
-
     },
     getUse: function(e) {
         this.setData({
@@ -60,8 +59,6 @@ Page({
             var phone = this.data.phone;
             var that = this;
             console.log(this.data.sinfonia[3] + "sroomidzzzzzzzzzz")
-            var sinfonia1 = this.data.sinfonia[3];
-            var sinfonia2 = this.data.sinfonia[4];
             wx.request({
                 //ßurl: '',
                 url: 'http://localhost:8080/SubmitServlet',
@@ -73,8 +70,8 @@ Page({
                     username: username,
                     use: use,
                     phone: phone,
-                    ftime: sinfonia1,
-                    ltime: sinfonia2
+                  ftime: that.data.sinfonia[3],
+                  ltime: that.data.sinfonia[4],
                 },
                 header: {
                     'content-type': 'application/json' // 默认值
