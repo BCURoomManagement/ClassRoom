@@ -120,3 +120,6 @@ page{
   width:35rpx;
   height:35rpx;
 }
+.finish{
+  opacity: 0.6
+}

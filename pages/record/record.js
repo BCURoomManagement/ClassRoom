@@ -1,4 +1,5 @@
 // pages/record/record.js
+var tool = require("../../utils/util.js");
 var app = getApp();
 Page({
 
@@ -73,6 +74,7 @@ Page({
       end: "19:40"
     }
     ],
+    nowdata:null
   },
   godetail: function (e) {
       this.setData({
@@ -98,8 +100,11 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    var nowtime = Date.parse(new Date());
+    let today = tool.toDate(nowtime);
     that.setData({
       userid: app.Appuserinfo.userid,
+      nowdata: today
     })
       wx.request({
           url: 'http://localhost:8080/RecordServlet',

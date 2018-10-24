@@ -99,64 +99,59 @@ Page({
   },
   submitT:function(options){
     var that = this;
-    wx.showModal({
-      title: '',
-      content: '是否取消预约',
-      showCancel: false,
-      confirmText: '确定',
-      cancelText:"取消",
-      confirmColor: "#77a9fb",
-      success:function(res){
-        var cdata = that.data.roomdetails;
-        var cdateday = cdata.data.split("-").join("");
-        console.log(cdateday);
-        var submission = cdata.submission;
-        var Classtime = new Array(15);
-        for (var j = 0; j < Classtime.length; j++) {
-          Classtime[j] = 0;
+    if(that.data.isfinish==true){
+      wx.showModal({
+        title: '',
+        content: '是否取消预约',
+        showCancel: false,
+        confirmText: '确定',
+        cancelText: "取消",
+        confirmColor: "#77a9fb",
+        success: function (res) {
+          var cdata = that.data.roomdetails;
+          var cdateday = cdata.data.split("-").join("");
+          console.log(cdateday);
+          var submission = cdata.submission;
+          var Classtime = new Array(15);
+          for (var j = 0; j < Classtime.length; j++) {
+            Classtime[j] = 0;
+          }
+          for (var i = that.data.roomdetails.ftime; i <= that.data.roomdetails.ltime; i++) {
+            Classtime[i] = 1;
+          }
+          console.log("传递的时间" + Classtime);
+          wx.request({
+            //url: '',
+            url: 'http://localhost:8080/CanleServlet',
+            data: {
+              roomid: that.data.roomdetails.roomid,
+              Daydata: cdateday,
+              time: Classtime,
+              submission: that.data.roomdetails.submission,
+              username: that.data.userid
+            },
+            header: {
+              'content-type': 'application/json' // 默认值
+            },
+            success: function (res) {
+              wx.redirectTo({
+                url: '../record/record',
+              })
+            },
+            fail: function (e) {
+            },
+          })
         }
-        for (var i = that.data.roomdetails.ftime; i <= that.data.roomdetails.ltime; i++) {
-          Classtime[i] = 1;
-        }
-        console.log("传递的时间" + Classtime);
-        wx.request({
-          //url: '',
-          url: 'http://localhost:8080/CanleServlet',
-          data: {
-            roomid: that.data.roomdetails.roomid,
-            Daydata: cdateday,
-            time: Classtime,
-            submission: that.data.roomdetails.submission,
-            username: that.data.userid
-          },
-          header: {
-            'content-type': 'application/json' // 默认值
-          },
-          success: function (res) {
-            // let roomjson = JSON.stringify(res.data);
-            // console.log(typeof (roomjson))
-            // let urlgo = '../oneroomlist/oneroomlist?roomjson=' + roomjson + "&Daydata=" + Daydata + "&Classtime=" + Classtime + "&sinfonia=" + sinfonia;
-            // wx.redirectTo({
-            //   url: urlgo
-            // })
-            wx.redirectTo({
-              url: '../record/record',
-            })
-          },
-          fail: function (e) {
-            // wx.showModal({
-            //   title: '提示',
-            //   content: '连接服务器失败，请稍后再试！',
-            //   showCancel: false,
-            //   confirmText: '确定',
-            //   confirmColor: "#77a9fb"
-            // })
-          },
-        })
-      }
-    })
-  
-   
+      })
+    }else{
+      wx.showModal({
+        title: '',
+        content: '对不起，此预约不在可取消范围内',
+        showCancel: false,
+        confirmText: '确定',
+        confirmColor: "#77a9fb",
+      })
+    }
   },
 
   /**
