@@ -6,9 +6,71 @@ Page({
    * 页面的初始数据
    */
   data: {
+    roomtypename: ["", "大数据学院", "多媒体教室", "普通教室"],
     roomdetails:null,
     isfinish:true,
-    pass:1
+    pass:1,
+    timeList: [{
+      time: 1,
+      start: "08:00",
+      end: "08:45"
+    },
+    {
+      time: 2,
+      start: "08:45",
+      end: "09:30"
+    }, {
+      time: 3,
+      start: "09:45",
+      end: "10:30"
+    }, {
+      time: 4,
+      start: "10:30",
+      end: "11:15"
+    }, {
+      time: 5,
+      start: "11:25",
+      end: "12:10"
+    }, {
+      time: 6,
+      classz: '',
+      timetext: "午2",
+      start: "12:10",
+      end: "12:55"
+    }, {
+      time: 7,
+      start: "13:05",
+      end: "13:50"
+    }, {
+      time: 8,
+      start: "13:50",
+      end: "14:35"
+    }, {
+      time: 9,
+      start: "14:50",
+      end: "15:35"
+    }, {
+      time: 10,
+      start: "15:35",
+      end: "16:40"
+    }, {
+      time: 11,
+      start: "16:30",
+      end: "17:15"
+    }, {
+      time: 12,
+      start: "17:15",
+      end: "18:00"
+    }, {
+      time: 13,
+      start: "18:10",
+      end: "18:55"
+    }, {
+      time: 14,
+      start: "18:55",
+      end: "19:40"
+    }
+    ],
   },
 
   /**
@@ -20,12 +82,13 @@ Page({
     })
     var nowtime = Date.parse(new Date());
     let today = tool.toDate(nowtime);
+    console.log("today" + today);
+    //未完成
     if (this.data.roomdetails.data <= today){
       this.setData({
         isfinish:false
       })
       console.log("取消" + this.data.roomdetails.data);
-      console.log("today" + today);
     }else{
       this.setData({
         isfinish: true

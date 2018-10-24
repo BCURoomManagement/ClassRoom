@@ -22,10 +22,10 @@
     </view>
     <view class='view-shadow'></view>
   </view>
-    <view class='view2' style='background:{{typecolor[0]}}' wx:for="{{recordlist}}"  data-href='../timeselect/timeselect' data-type="{{item.type}}" wx:for-index="bindex" >
+    <view class='view2' style='background:{{typecolor[item.typee]}}' wx:for="{{recordlist}}"  data-href='../timeselect/timeselect' data-type="{{item.typee}}" wx:for-index="bindex" >
         <view class='text1'>
-            <text>{{item.roomid}}</text>
-            <text class='text-place'>日期: {{item.data}} 时间: 14:20-16:20</text>
+            <text>{{roomtypename[item.typee]}}{{item.roomid}}</text>
+            <text class='text-place'>日期: {{item.data}}  时间: {{timeList[item.ftime-1].start}} - {{timeList[item.ltime-1].start}}</text>
         </view>
         <view class='text2' data-bindex="{{bindex}}" bindtap='godetail'>
           <!-- <text>查看</text> -->

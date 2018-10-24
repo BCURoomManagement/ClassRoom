@@ -4,65 +4,65 @@
   <view class='modal-body'>
     <view class='modal-bottom'>
        <view class='modal-bottom-patr1'>
-        <view class='part1-name'>{{roomtypename[selectData.typee]}}{{selectData.roomid}}</view>
-        <view class='part1-place'>{{selectData.place}}</view>
+        <view class='part1-name'>{{roomtypename[roomdetails.typee]}}{{roomdetails.roomid}}</view>
+        <view class='part1-place'>{{roomdetails.place}}</view>
        </view>
        <view class='modal-bottom-part2'>
           <view class='part2-view1'>基础设施</view>
-          <view class='part2-view1 view2'>可容纳{{selectData.peoplenum}}人</view>
+          <view class='part2-view1 view2'>可容纳{{roomdetails.peoplenum}}人</view>
        </view>
        <view class='modal-bottom-part3'>
           <ul>
             <li>
-              <view class="part3-icon" wx:if="{{selectData.wifi}}" >
+              <view class="part3-icon" wx:if="{{roomdetails.wifi}}" >
                 <image src='../../images/sb01.png'></image>
                 WiFi
               </view>
-              <view class="part3-icon" wx:if="{{selectData.projector}}">
+              <view class="part3-icon" wx:if="{{roomdetails.projector}}">
                 <image src='../../images/sb02.png'></image>
                 投影
               </view>
-              <view class="part3-icon" wx:if="{{selectData.roomcomputer}}">
+              <view class="part3-icon" wx:if="{{roomdetails.roomcomputer}}">
                 <image src='../../images/sb03.png'></image>
                 教室机
               </view>
-              <view class="part3-icon " wx:if="{{selectData.doorlock}}">
+              <view class="part3-icon " wx:if="{{roomdetails.doorlock}}">
                 <image src='../../images/sb04.png'></image>
                 门禁锁
               </view>
             </li>
             <li>
-              <view class="part3-icon" wx:if="{{selectData.wired}}">
+              <view class="part3-icon" wx:if="{{roomdetails.wired}}">
                 <image src='../../images/sb05.png'></image>
                 有线网络
               </view>
-              <view class="part3-icon" wx:if="{{selectData.touchtv}}">
+              <view class="part3-icon" wx:if="{{roomdetails.touchtv}}">
                 <image src='../../images/sb06.png' ></image>
                 触屏电视
               </view>
-              <view class="part3-icon " wx:if="{{selectData.stucomputer}}">
+              <view class="part3-icon " wx:if="{{roomdetails.stucomputer}}">
                 <image src='../../images/sb07.png'></image>
                 学生电脑
               </view>
-              <view class="part3-icon" wx:if="{{selectData.actdesks}}" >
+              <view class="part3-icon" wx:if="{{roomdetails.actdesks}}" >
                 <image src='../../images/sb08.png'></image>
                 活动书桌
               </view>
             </li>
             <li>
-              <view class="part3-icon" wx:if="{{selectData.aio}}" >
+              <view class="part3-icon" wx:if="{{roomdetails.aio}}" >
                 <image src='../../images/sb09.png'></image>
                 一体机
               </view>
-              <view class="part3-icon" wx:if="{{selectData.meetingsys}}">
+              <view class="part3-icon" wx:if="{{roomdetails.meetingsys}}">
                 <image src='../../images/sb10.png' ></image>
                 会议系统
               </view>
-              <view class="part3-icon" wx:if="{{selectData.aircolo}}">
+              <view class="part3-icon" wx:if="{{roomdetails.aircolo}}">
                 <image src='../../images/sb11.png'></image>
                 空调
               </view>
-              <view class="part3-icon " wx:if="{{selectData.gddesk}}">
+              <view class="part3-icon " wx:if="{{roomdetails.gddesk}}">
                 <image src='../../images/sb12.png' ></image>
                 固定桌椅
               </view>
@@ -79,29 +79,29 @@
     <view class='model-input'>
      <view class='model-inputuse data-sure'>
         <text class='detail-title'>日期</text>
-        <text class='detail-value'>{{sinfonia[0]}}zz</text>
+        <text class='detail-value'>{{roomdetails.data}}</text>
       </view>
       <view class='model-inputuse time-sure'>
          <text class='detail-title'>时间</text>
-         <text class='detail-value'>{{sinfonia[1]}}-{{sinfonia[2]}}dd</text>
+         <text class='detail-value'>{{timeList[roomdetails.ftime-1].start}} - {{timeList[roomdetails.ltime-1].start}}</text>
       </view>
       <view class='model-inputuse data-sure'>
-        <text>用途</text>
-        <text class='detail-value'>zzz</text>
+        <text class='detail-title'>用途</text>
+        <text class='detail-value'>{{roomdetails.use}}</text>
       </view>
       <view class='model-inputuse phone time-sure'>
-        <text>电话</text>
-         <text class='detail-value'>第三方</text>
+        <text class='detail-title'>电话</text>
+         <text class='detail-value'>{{roomdetails.phone}}</text>
       </view>
     </view>
     <view class='modal-conten1'>
       <view class='model-icon2'></view>
       <view class='model-title'>审核状态</view>
     </view>
-    <view class='model-input model-ispass'>
-      <text style='color:{{pass==1?"#EEEE00":""}};'>审核中</text>
-      <text style='color:{{pass==2?"#6BB92F":""}};'>已通过</text>
-      <text style='color:{{pass==3?"red":""}};'>未通过</text>
+    <view class='model-input model-ispass' style='{{isfinish==false?"margin-bottom: 50rpx;":""}}'>
+      <text style='color:{{roomdetails.pass=="no"?"#EEEE00":""}};' wx:if="{{roomdetails.pass=='no'}}">审核中</text>
+      <text style='color:{{roomdetails.pass=="pass"?"#6BB92F":""}};'  wx:if="{{roomdetails.pass=='pass'}}">已通过</text>
+      <text style='color:{{roomdetails.pass=="nopass"?"red":""}};'  wx:if="{{roomdetails.pass=='nopass'}}">未通过</text>
     </view>
     <view class='modal-conten1 modal-conten2' wx:if="{{isfinish}}">
       <view class='model-icon3'></view>
@@ -111,7 +111,7 @@
         <p>请小心使用教室内设备,防止损坏</p>
         <p>在借用日期前可以取消教室预约</p>
       </view>
-     <view class='submit-time' bindtap='submitT' wx:if="{{isfinish}}">取消预约</view>
+     <view class='canle-time' bindtap='submitT' wx:if="{{isfinish}}">取消预约</view>
   </view>
 </view>
 
