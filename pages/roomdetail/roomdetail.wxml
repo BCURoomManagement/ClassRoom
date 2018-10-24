@@ -111,7 +111,7 @@
         <p>请小心使用教室内设备,防止损坏</p>
         <p>在借用日期前可以取消教室预约</p>
       </view>
-     <view class='canle-time' bindtap='submitT' wx:if="{{isfinish}}">取消预约</view>
+     <view class='canle-time {{isfinish==false?"canle-gray":""}}' bindtap='submitT' >取消预约</view>
   </view>
 </view>
 

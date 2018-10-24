@@ -244,6 +244,12 @@
   border-radius: 20rpx;
   box-shadow: 0 0 15rpx #ff6739;
 }
+.canle-gray{
+    margin: 20rpx auto 50rpx auto;
+  color: #fefefe;
+  background:linear-gradient( to right, #e7e8e8 0%, #d6d6d6 100%);
+  box-shadow: 0 0 15rpx #fff;
+}
 /* 弹出 */
 .model-box-sure{
   position:fixed;
