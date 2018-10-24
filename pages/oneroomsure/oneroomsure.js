@@ -72,8 +72,8 @@ Page({
           username: username,
           use: use,
           phone:phone,
-          ftime :sinfonia[3],
-          ltime: sinfonia[4]
+          ftime:that.data.sinfonia[3],
+          ltime: that.data.sinfonia[4]
         },
         header: {
           'content-type': 'application/json' // 默认值
