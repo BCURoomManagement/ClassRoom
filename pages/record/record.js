@@ -6,34 +6,77 @@ Page({
    * 页面的初始数据
    */
   data: {
-    array: [{ name: "大数据学院", type: "1", color: "linear-gradient(to right bottom, #D486FF 0%,#9666fe 100%)" }, { name: "多媒体教室", type: "2", color: "linear-gradient(to right bottom, #FFBA96 0%,#FF7A95 100%)" }, { name: "普通教室", type: "3", color: "linear-gradient(to right bottom, #33CAFF 0%,#2A85FC 100%)" }],
     selecDetail:null,
     userid:null,
     recordlist:null,
     roomtypename: ["", "大数据学院", "多媒体教室", "普通教室"],
-    typecolor: ["linear-gradient(to right bottom, #D486FF 0%,#9666fe 100%)", "linear-gradient(to right bottom, #FFBA96 0%,#FF7A95 100%)", "linear-gradient(to right bottom, #33CAFF 0%,#2A85FC 100%)"],
-    datatime:"20181210"
+    typecolor: ["","linear-gradient(to right bottom, #D486FF 0%,#9666fe 100%)", "linear-gradient(to right bottom, #FFBA96 0%,#FF7A95 100%)", "linear-gradient(to right bottom, #33CAFF 0%,#2A85FC 100%)"],
+    datatime:"20181210",
+    timeList: [{
+      time: 1,
+      start: "08:00",
+      end: "08:45"
+    },
+    {
+      time: 2,
+      start: "08:45",
+      end: "09:30"
+    }, {
+      time: 3,
+      start: "09:45",
+      end: "10:30"
+    }, {
+      time: 4,
+      start: "10:30",
+      end: "11:15"
+    }, {
+      time: 5,
+      start: "11:25",
+      end: "12:10"
+    }, {
+      time: 6,
+      classz: '',
+      timetext: "午2",
+      start: "12:10",
+      end: "12:55"
+    }, {
+      time: 7,
+      start: "13:05",
+      end: "13:50"
+    }, {
+      time: 8,
+      start: "13:50",
+      end: "14:35"
+    }, {
+      time: 9,
+      start: "14:50",
+      end: "15:35"
+    }, {
+      time: 10,
+      start: "15:35",
+      end: "16:40"
+    }, {
+      time: 11,
+      start: "16:30",
+      end: "17:15"
+    }, {
+      time: 12,
+      start: "17:15",
+      end: "18:00"
+    }, {
+      time: 13,
+      start: "18:10",
+      end: "18:55"
+    }, {
+      time: 14,
+      start: "18:55",
+      end: "19:40"
+    }
+    ],
   },
   godetail: function (e) {
-    // let roomtype = event.currentTarget.dataset.type;
-    // let typestr = JSON.stringify(roomtype);
-    // let urlgo = event.currentTarget.dataset.href + "?roomtype=" + typestr;
-    // wx.request({
-    //   url: 'http://localhost:8080/IndexServlet',
-    //   data: {
-    //     type: roomtype,
-    //   },
-    //   header: {
-    //     'content-type': 'application/json' // 默认值
-    //   },
-    //   success: function (res) {
-    //     wx.redirectTo({
-    //       url: urlgo,
-    //     });
-    //   },
-    // })
       this.setData({
-        selecDetail: this.data.array[e.currentTarget.dataset.bindex],
+        selecDetail: this.data.recordlist[e.currentTarget.dataset.bindex],
       })
     
     let selecDetail = JSON.stringify(this.data.selecDetail);
@@ -67,6 +110,7 @@ Page({
               'content-type': 'application/json' // 默认值
           },
           success: function (res) {
+            console.log(res.data)
               that.setData({
                 recordlist:res.data
               })
@@ -82,10 +126,8 @@ Page({
                  [listdata]: dateyear + "-" + datemonth + "-" + dateday
                })
                let timestring = JSON.stringify(that.data.recordlist[i]);
-               
                console.log(timestring)
             }
-            
             console.log(that.data.recordlist)
           }
       })
