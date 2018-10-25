@@ -14,55 +14,55 @@
        <view class='modal-bottom-part3'>
           <ul>
             <li>
-              <view class="part3-icon" wx:if="{{selectData.wifi}}" >
+              <view class="part3-icon" wx:if="{{selectData.wifi=='true'}}" >
                 <image src='../../images/sb01.png'></image>
                 WiFi
               </view>
-              <view class="part3-icon" wx:if="{{selectData.projector}}">
+              <view class="part3-icon" wx:if="{{selectData.projector=='true'}}">
                 <image src='../../images/sb02.png'></image>
                 投影
               </view>
-              <view class="part3-icon" wx:if="{{selectData.roomcomputer}}">
+              <view class="part3-icon" wx:if="{{selectData.roomcomputer=='true'}}">
                 <image src='../../images/sb03.png'></image>
                 教室机
               </view>
-              <view class="part3-icon " wx:if="{{selectData.doorlock}}">
+              <view class="part3-icon " wx:if="{{selectData.doorlock=='true'}}">
                 <image src='../../images/sb04.png'></image>
                 门禁锁
               </view>
             </li>
             <li>
-              <view class="part3-icon" wx:if="{{selectData.wired}}">
+              <view class="part3-icon" wx:if="{{selectData.wired=='true'}}">
                 <image src='../../images/sb05.png'></image>
                 有线网络
               </view>
-              <view class="part3-icon" wx:if="{{selectData.touchtv}}">
+              <view class="part3-icon" wx:if="{{selectData.touchtv=='true'}}">
                 <image src='../../images/sb06.png' ></image>
                 触屏电视
               </view>
-              <view class="part3-icon " wx:if="{{selectData.stucomputer}}">
+              <view class="part3-icon " wx:if="{{selectData.stucomputer=='true'}}">
                 <image src='../../images/sb07.png'></image>
                 学生电脑
               </view>
-              <view class="part3-icon" wx:if="{{selectData.actdesks}}" >
+              <view class="part3-icon" wx:if="{{selectData.actdesks}}=='true'" >
                 <image src='../../images/sb08.png'></image>
                 活动书桌
               </view>
             </li>
             <li>
-              <view class="part3-icon" wx:if="{{selectData.aio}}" >
+              <view class="part3-icon" wx:if="{{selectData.aio}}=='true'" >
                 <image src='../../images/sb09.png'></image>
                 一体机
               </view>
-              <view class="part3-icon" wx:if="{{selectData.meetingsys}}">
+              <view class="part3-icon" wx:if="{{selectData.meetingsys}}=='true'">
                 <image src='../../images/sb10.png' ></image>
                 会议系统
               </view>
-              <view class="part3-icon" wx:if="{{selectData.aircolo}}">
+              <view class="part3-icon" wx:if="{{selectData.aircolo}}=='true'">
                 <image src='../../images/sb11.png'></image>
                 空调
               </view>
-              <view class="part3-icon " wx:if="{{selectData.gddesk}}">
+              <view class="part3-icon " wx:if="{{selectData.gddesk}}=='true'">
                 <image src='../../images/sb12.png' ></image>
                 固定桌椅
               </view>
