@@ -1,11 +1,12 @@
 {
     "pages": [
-        "pages/index/index",
+      "pages/index/index",
+        "pages/roomselect/roomselect",        
+        
         "pages/record/record",
         "pages/timeselect/timeselect",
         "pages/roomdetail/roomdetail",
         "pages/oneroomsure/oneroomsure",     
-        "pages/roomselect/roomselect",
         "pages/oneroomlist/oneroomlist",
         "pages/serchType/serchType",
         "pages/introduce/introduce",
