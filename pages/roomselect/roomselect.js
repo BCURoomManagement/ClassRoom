@@ -14,65 +14,79 @@ Page({
     bgheight1:"",
     bgheight2: "",
     bgheight3: "",
-    array1: [{
-      roomname: " 大数据学院119", roomplace: "3号实训楼1层北侧", roompeople: 40, roomimg: "../../images/room3.png", wifi: false, ty: true, jsj: true, key: true, network: false, tv: true, studentcomputer: false, desk: false, ytj: false, hy: true, kt: false, gddesk: true}, { roomname: " 大数据学院119", roomplace: "3号实训楼1层北侧", roompeople: 20, roomimg: "../../images/room2.png", wifi: true, ty: false, jsj:true, key: false, network: false, tv: true, studentcomputer: true, desk: true, ytj: true, hy: false, kt: false, gddesk:true }, {roomname: " 大数据学院119", roomplace: "3号实训楼1层北侧", roompeople: 40, roomimg: "../../images/room3.png", wifi: false, ty: false, jsj: true, key: true, network: true, tv: true, studentcomputer: false, desk: true, ytj: false, hy: false, kt: true, gddesk: true}],
-    array2: [{
-      roomname: "3s北305", roomplace: "3号实训楼3层北侧", roompeople: 40, roomimg: "../../images/room3.png", wifi: false, ty: true, jsj: true, key: true, network: false, tv: true, studentcomputer: false, desk: false, ytj: false, hy: true, kt: false, gddesk: true}, { roomname: "3s北306", roomplace: "3号实训楼3层北侧", roompeople: 20, roomimg: "../../images/room2.png", wifi: true, ty: false, jsj: true, key: false, network: false, tv: true, studentcomputer: true, desk: true, ytj: true, hy: false, kt: false, gddesk: true }],
+    roomtypename: ["", "大数据学院", "多媒体教室", "普通教室"],
+    // array: [{
+    //   roomname: " 大数据学院119", roomplace: "3号实训楼1层北侧", roompeople: 40, roomimg: "../../images/room3.png", wifi: false, ty: true, jsj: true, key: true, network: false, tv: true, studentcomputer: false, desk: false, ytj: false, hy: true, kt: false, gddesk: true}, { roomname: " 大数据学院119", roomplace: "3号实训楼1层北侧", roompeople: 20, roomimg: "../../images/room2.png", wifi: true, ty: false, jsj:true, key: false, network: false, tv: true, studentcomputer: true, desk: true, ytj: true, hy: false, kt: false, gddesk:true }, {roomname: " 大数据学院119", roomplace: "3号实训楼1层北侧", roompeople: 40, roomimg: "../../images/room3.png", wifi: false, ty: false, jsj: true, key: true, network: true, tv: true, studentcomputer: false, desk: true, ytj: false, hy: false, kt: true, gddesk: true}],
+    // array2: [{
+    //   roomname: "3s北305", roomplace: "3号实训楼3层北侧", roompeople: 40, roomimg: "../../images/room3.png", wifi: false, ty: true, jsj: true, key: true, network: false, tv: true, studentcomputer: false, desk: false, ytj: false, hy: true, kt: false, gddesk: true}, { roomname: "3s北306", roomplace: "3号实训楼3层北侧", roompeople: 20, roomimg: "../../images/room2.png", wifi: true, ty: false, jsj: true, key: false, network: false, tv: true, studentcomputer: true, desk: true, ytj: true, hy: false, kt: false, gddesk: true }],
 
-    array3: [{roomname: "3s南201", roomplace: "3号实训楼3层北侧", roompeople: 40, roomimg: "../../images/room3.png", wifi: false, ty: true, jsj: true, key: true, network: false, tv: true, studentcomputer: false, desk: false, ytj: false, hy: true, kt: false, gddesk: true
-    }],
+    // array3: [{roomname: "3s南201", roomplace: "3号实训楼3层北侧", roompeople: 40, roomimg: "../../images/room3.png", wifi: false, ty: true, jsj: true, key: true, network: false, tv: true, studentcomputer: false, desk: false, ytj: false, hy: true, kt: false, gddesk: true
+    // }],
     flag1:true,
     flag2:false,
     selectjson:null,
+    array1:null,
+    array2:null,
+    array3:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    that.setData({
-      bgheight1: that.data.array1,
-      bgheight2: that.data.array2,
-      bgheight3: that.data.array3,
-       });
-       console.log("zz"+that.data.screenheight)
-    //   wx.request({
-    //       url: 'http://localhost:8080/IndexServlet',
-    //       data: {
-    //           te:1
-    //       },
-    //       header: {
-    //           'content-type': 'application/json' // 默认值
-    //       },
-    //       success: function (res) {
-    //           console.log(res.data)
-    //       }
-    //   })
-    //   wx.request({
-    //       url: 'http://localhost:8080/IndexServlet',
-    //       data: {
-    //           te: 2
-    //       },
-    //       header: {
-    //           'content-type': 'application/json' // 默认值
-    //       },
-    //       success: function (res) {
-    //           console.log(res.data)
-    //       }
-    //   })
-    //   wx.request({
-    //       url: 'http://localhost:8080/IndexServlet',
-    //       data: {
-    //           te: 3
-    //       },
-    //       header: {
-    //           'content-type': 'application/json' // 默认值
-    //       },
-    //       success: function (res) {
-    //           console.log(res.data)
-    //       }
-    //   })
+      var that = this;
+      wx.request({
+          url: 'http://localhost:8080/IndexServlet',
+          data: {
+            type:1
+          },
+          header: {
+              'content-type': 'application/json' // 默认值
+          },
+          success: function (res) {
+            that.setData({
+              array1: res.data,
+              bgheight1: Object.keys(res.data).length
+            })
+            console.log("that.data.array1");
+            console.log(that.data.array1);
+          }
+      })
+      wx.request({
+          url: 'http://localhost:8080/IndexServlet',
+          data: {
+              type: 2
+          },
+          header: {
+              'content-type': 'application/json' // 默认值
+          },
+          success: function (res) {
+            that.setData({
+              array2: res.data,
+              bgheight2: Object.keys(res.data).length
+            })
+            console.log("that.data.array2");
+            console.log(that.data.array2);
+          }
+      })
+      wx.request({
+          url: 'http://localhost:8080/IndexServlet',
+          data: {
+            type: 3
+          },
+          header: {
+              'content-type': 'application/json' // 默认值
+          },
+          success: function (res) {
+            that.setData({
+              array3: res.data,
+              bgheight3: Object.keys(res.data).length
+            })
+            console.log("that.data.array3");
+            console.log(that.data.array3);
+            console.log(that.data.bgheight3);
+          }
+      })
   },
   /**
      * 滑动切换tab
