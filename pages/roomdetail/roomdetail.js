@@ -1,6 +1,7 @@
 // pages/roomdetail/roomdetail.js
 var tool = require("../../utils/util.js");
 var app = getApp();
+var API_URL = app.appServlet.servlet + 'CanleServlet';
 Page({
   /**
    * 页面的初始数据
@@ -122,7 +123,7 @@ Page({
           console.log("传递的时间" + Classtime);
           wx.request({
             //url: '',
-            url: 'http://localhost:8080/CanleServlet',
+            url: API_URL,
             data: {
               roomid: that.data.roomdetails.roomid,
               Daydata: cdateday,

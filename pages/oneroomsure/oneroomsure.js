@@ -1,5 +1,6 @@
 // pages/oneroomsure/oneroomsure.js
 var app = getApp();
+var API_URL = app.appServlet.servlet + 'SubmitServlet';
 Page({
     /**
      * 页面的初始数据
@@ -61,7 +62,7 @@ Page({
             console.log(this.data.sinfonia[3] + "sroomidzzzzzzzzzz")
             wx.request({
                 //ßurl: '',
-                url: 'http://localhost:8080/SubmitServlet',
+                url: API_URL,
                 data: {
                     sroomid: sroomid,
                     sDaydata: sDaydata,

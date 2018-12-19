@@ -1,6 +1,6 @@
 <!--pages/roomdetail/roomdetail.wxml-->
 <backbar gohref="../record/record" paddingtop="115" margintop="0" imgcolor="back-grey"></backbar>
-<view class='body' style='hide:{{screenheight}}rpx'>
+<view class='body' style='hide:{{3}}rpx'>
   <view class='modal-body'>
     <view class='modal-bottom'>
        <view class='modal-bottom-patr1'>
@@ -83,7 +83,7 @@
       </view>
       <view class='model-inputuse time-sure'>
          <text class='detail-title'>时间</text>
-         <text class='detail-value'>{{timeList[roomdetails.ftime-1].start}} - {{timeList[roomdetails.ltime-1].start}}</text>
+         <text class='detail-value'>{{timeList[roomdetails.ftime-1].start}} - {{timeList[roomdetails.ltime-1].end}}</text>
       </view>
       <view class='model-inputuse data-sure'>
         <text class='detail-title'>用途</text>

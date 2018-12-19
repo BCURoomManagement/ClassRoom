@@ -1,5 +1,5 @@
 var app = getApp();
-var API_URL = "";
+var API_URL = app.appServlet.servlet +'LognServlet';
 // @需要字段:用户姓名username  学部department 学号studentnumber
 // 学号可以为空
 Page({
@@ -90,7 +90,7 @@ Page({
     })
     console.log("userid" + that.data.userid);
     wx.request({
-      url: "http://localhost:8080/LognServlet" + "?userName=" + res.detail.value.userName + "&&userPwd=" + res.detail.value.userPwd,
+      url: API_URL+ "?userName=" + res.detail.value.userName + "&&userPwd=" + res.detail.value.userPwd,
       header: {
         "Content-Type": "json"
       },

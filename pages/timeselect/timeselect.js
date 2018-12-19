@@ -1,4 +1,6 @@
 // pages/yan/yan.js
+var app = getApp();
+var API_URL = app.appServlet.servlet + 'ClassTimeServlet';
 Page({
 
     /**
@@ -418,7 +420,7 @@ Page({
             console.log(roomtype);
             wx.request({
                 //url: '',
-                url: 'http://localhost:8080/ClassTimeServlet',
+              url: API_URL,
                 data: {
                     type: roomtype,
                     Daydata: Daydata,

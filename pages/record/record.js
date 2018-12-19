@@ -1,6 +1,7 @@
 // pages/record/record.js
 var tool = require("../../utils/util.js");
 var app = getApp();
+var API_URL = app.appServlet.servlet + 'RecordServlet';
 Page({
 
   /**
@@ -107,7 +108,7 @@ Page({
       nowdata: today
     })
       wx.request({
-          url: 'http://localhost:8080/RecordServlet',
+        url: API_URL,
           data: {
               username:"admin"
           },
