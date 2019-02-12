@@ -44,6 +44,6 @@ App({
     userid:null,
   },
   appServlet:{
-    servlet:'http://localhost:8082/' 
+    servlet:'http://localhost:8080/' 
   }
 })
