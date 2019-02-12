@@ -2,6 +2,8 @@
 // @需要字段:三种教室的json数据，包含：roomname名字  roomplace位置  容纳人数roompeople 图片roomimg 是否有：wifi ty投影 jsj教室机 key门禁锁 network有线网络 tv触屏电视 studentcomputer学生电脑 desk活动书桌 ytj一体机 hy会议系统 kt空调 gddesk固定桌椅
 //
 // 
+var app = getApp();
+var API_URL = app.appServlet.servlet + 'IndexServlet';
 Page({
 
   /**
@@ -36,7 +38,7 @@ Page({
   onLoad: function (options) {
       var that = this;
       wx.request({
-          url: 'http://localhost:8080/IndexServlet',
+        url: API_URL,
           data: {
             type:1
           },
@@ -53,7 +55,7 @@ Page({
           }
       })
       wx.request({
-          url: 'http://localhost:8080/IndexServlet',
+        url: API_URL,
           data: {
               type: 2
           },
@@ -70,7 +72,7 @@ Page({
           }
       })
       wx.request({
-          url: 'http://localhost:8080/IndexServlet',
+         url: API_URL,
           data: {
             type: 3
           },

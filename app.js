@@ -1,4 +1,5 @@
 //app.js
+
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -41,5 +42,8 @@ App({
     studentnumber:null,
     islogin: false,
     userid:null,
+  },
+  appServlet:{
+    servlet:'http://localhost:8082/' 
   }
 })

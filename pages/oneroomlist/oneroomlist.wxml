@@ -4,7 +4,7 @@
   <view class='container2'style="height:{{items==0?0:(items<3?items*580:'')}}rpx">
     <view class='room-yd-view' wx:for="{{roomjson}}" data-item='{{item}}' wx:for-index="bindex" bindtap='show'>
       <view class='room-img'>
-        <image src='http://localhost:8080/upload/{{item.picture}}'></image>
+        <image src='http://localhost:8082/upload/{{item.picture}}'></image>
       </view>
       <view class='room-bottom'>
         <text class='room-bottom-romname'>{{roomtypename[item.typee]}}{{item.roomid}}</text>
@@ -19,7 +19,7 @@
   <!-- <text class="textstyle {{selectjson.wifi==false?'second':''}}">{{selectjson.roomname}}</text> -->
     <view class='modal-top'>
       <!-- <image src='{{selectjson.roomimg}}'></image> -->
-      <image src='http://localhost:8080/upload/{{selectjson.picture}}'></image>
+      <image src='http://localhost:8082/upload/{{selectjson.picture}}'></image>
     </view>
     <view class='modal-bottom'>
        <view class='modal-bottom-patr1'>
