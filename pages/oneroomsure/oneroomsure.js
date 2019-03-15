@@ -1,6 +1,7 @@
 // pages/oneroomsure/oneroomsure.js
 var app = getApp();
-var API_URL = app.appServlet.servlet + 'SubmitServlet';
+var API_URL = app.appServlet.servlet2 + 'SubmitServlet';
+// var API_URL = app.appServlet.servlet + 'SubmitServlet';
 Page({
     /**
      * 页面的初始数据
@@ -10,11 +11,15 @@ Page({
         zindex: false,
         isexist: true,
         roomtypename: ["", "大数据学院", "多媒体教室", "普通教室"],
+        uselist: ['班会', '补习', '讲座', '工作室活动','其他'],
         selectData: null,
         use: null,
         phone: null,
+        bgcolor:null,
+        page:null
     },
     getUse: function(e) {
+      console.log("选择了" + e.detail.value)
         this.setData({
             use: e.detail.value
         })
@@ -34,7 +39,19 @@ Page({
             Classtime: options.Classtime,
             sinfonia: options.sinfonia.split(","),
             userid: app.Appuserinfo.userid,
+            bgcolor: options.bgcolor,
+            bgcoloronly: options.bgcoloronly,
+            backpage: options.backpage,
+            backtab: options.backpage
         })
+        if (options.backtab == 2) {
+          this.setData({
+            backtab: options.backpage + "?backtab=2"
+          })
+          console.log("backtabbacktabbacktab" + this.data.backpage)
+          
+        }
+      console.log("这是：oneroomsure" + this.data.backpage);
         console.log(this.data.Daydata + "xxddddddxxx" + this.data.userid);
         console.log(this.data.selectData);
 
@@ -55,11 +72,12 @@ Page({
             var sClasstime = this.data.Classtime;
             //时间戳
             var timestamp = Date.parse(new Date());
+          console.log(timestamp + "sroomidzzzzzzzzzz")
             var username = this.data.userid;
             var use = this.data.use;
             var phone = this.data.phone;
             var that = this;
-            console.log(this.data.sinfonia[3] + "sroomidzzzzzzzzzz")
+            
             wx.request({
                 //ßurl: '',
                 url: API_URL,
@@ -84,10 +102,12 @@ Page({
                     // wx.redirectTo({
                     //   url: urlgo
                     // })
+                  if (res.data==true){
                     that.setData({
-                        flag1: false,
-                        zindex: true,
+                      flag1: false,
+                      zindex: true,
                     })
+                  }
                 },
                 fail: function(e) {
                     // wx.showModal({

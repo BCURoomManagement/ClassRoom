@@ -1,10 +1,19 @@
 <!--pages/oneroomlist/oneroomlist.wxml-->
 <backbar gohref="../timeselect/timeselect" paddingtop="115" margintop="0" imgcolor="back-grey"></backbar>
 <view class='body' style='height:{{items<3?screenheight*2:""}}rpx'>
-  <view class='container2'style="height:{{items==0?0:(items<3?items*580:'')}}rpx">
+  <!-- 没有教室 -->
+  <view class='container2 containerblack'style="height:1100rpx" wx:if="{{items==0}}">
+    <view class='room-yd-view-no' wx:if="{{items==0}}">
+      <view class='room-img-no'>
+        <image src='../../images/nocontent1.PNG' style='height:250px; width:260px;'></image>
+      </view>
+      <text class='room-text-no'>该时间段暂时没有可借用教室</text>
+    </view>
+  </view>
+  <view class='container2'style="height:{{items==0?0:(items<3?items*580:'')}}rpx" wx:if="{{items!=0}}">
     <view class='room-yd-view' wx:for="{{roomjson}}" data-item='{{item}}' wx:for-index="bindex" bindtap='show'>
       <view class='room-img'>
-        <image src='http://localhost:8082/upload/{{item.picture}}'></image>
+        <image src='https://www.bcuvote.top/RoomServer/upload/{{item.picture}}'></image>
       </view>
       <view class='room-bottom'>
         <text class='room-bottom-romname'>{{roomtypename[item.typee]}}{{item.roomid}}</text>
@@ -19,7 +28,7 @@
   <!-- <text class="textstyle {{selectjson.wifi==false?'second':''}}">{{selectjson.roomname}}</text> -->
     <view class='modal-top'>
       <!-- <image src='{{selectjson.roomimg}}'></image> -->
-      <image src='http://localhost:8082/upload/{{selectjson.picture}}'></image>
+      <image src='https://www.bcuvote.top/RoomServer/upload/{{selectjson.picture}}'></image>
     </view>
     <view class='modal-bottom'>
        <view class='modal-bottom-patr1'>

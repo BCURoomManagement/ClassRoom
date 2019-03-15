@@ -42,8 +42,12 @@ App({
     studentnumber:null,
     islogin: false,
     userid:null,
+    searchtype:null,
+    selectroomid:null,
   },
   appServlet:{
-    servlet:'http://localhost:8082/' 
+    servlet2: 'https://www.bcuvote.top/RoomServer/',
+    // servlet2: 'https://www.istuadmission.com/BorrowRoom/'
+    // servlet2: 'http://localhost:8085/BorrowRoom/',
   }
 })

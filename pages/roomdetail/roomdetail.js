@@ -1,7 +1,8 @@
 // pages/roomdetail/roomdetail.js
 var tool = require("../../utils/util.js");
 var app = getApp();
-var API_URL = app.appServlet.servlet + 'CanleServlet';
+var API_URL = app.appServlet.servlet2 + 'CanleServlet';
+// var API_URL = app.appServlet.servlet + 'CanleServlet';
 Page({
   /**
    * 页面的初始数据
@@ -10,6 +11,7 @@ Page({
     roomtypename: ["", "大数据学院", "多媒体教室", "普通教室"],
     roomdetails:null,
     isfinish:true,
+    iscancel:false,
     pass:1,
     timeList: [{
       time: 1,
@@ -78,6 +80,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("这是：roomdetail");
     this.setData({
       roomdetails: JSON.parse(options.roomdetails),
       userid: app.Appuserinfo.userid,
@@ -96,11 +99,11 @@ Page({
         isfinish: true
       })
     }
-    console.log("sss" + typeof(this.data.roomdetails));
+    console.log("sss" +this.data.isfinish);
   },
   submitT:function(options){
     var that = this;
-    if(that.data.isfinish==true){
+    if (that.data.isfinish == true && that.data.roomdetails.pass!="cancel"){
       wx.showModal({
         title: '',
         content: '是否取消预约',
@@ -115,12 +118,16 @@ Page({
           var submission = cdata.submission;
           var Classtime = new Array(15);
           for (var j = 0; j < Classtime.length; j++) {
+            console.log("进来了" + j)
             Classtime[j] = 0;
           }
-          for (var i = that.data.roomdetails.ftime; i <= that.data.roomdetails.ltime; i++) {
-            Classtime[i] = 1;
+          var ftime = that.data.roomdetails.ftime;
+          var ltime = that.data.roomdetails.ltime
+          for (var k = ftime; k <= ltime; k++) {
+            console.log("进来了qq" + k)
+            Classtime[k] = 1;
           }
-          console.log("传递的时间" + Classtime);
+          console.log("需要取消的时间" + Classtime);
           wx.request({
             //url: '',
             url: API_URL,

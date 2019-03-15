@@ -98,10 +98,11 @@
       <view class='model-icon2'></view>
       <view class='model-title'>审核状态</view>
     </view>
-    <view class='model-input model-ispass' style='{{isfinish==false?"margin-bottom: 50rpx;":""}}'>
-      <text style='color:{{roomdetails.pass=="no"?"#EEEE00":""}};' wx:if="{{roomdetails.pass=='no'}}">审核中</text>
-      <text style='color:{{roomdetails.pass=="pass"?"#6BB92F":""}};'  wx:if="{{roomdetails.pass=='pass'}}">已通过</text>
-      <text style='color:{{roomdetails.pass=="nopass"?"red":""}};'  wx:if="{{roomdetails.pass=='nopass'}}">未通过</text>
+    <view class='model-input model-ispass' style='{{isfinish==true?"margin-bottom: 50rpx;":""}}'>
+      <text style='color:{{roomdetails.pass=="passing"?"#EEEE00":""}};' wx:if="{{roomdetails.pass=='pending'}}">审核中</text>
+      <text style='color:{{roomdetails.pass=="pass"?"#6BB92F":""}};' wx:if="{{roomdetails.pass=='pass'}}"> 已通过</text>
+      <text style='color:{{roomdetails.pass=="nopass"?"red":""}};'  wx:if="{{roomdetails.pass=='nopass'}}"> 未通过</text>
+      <text style='color:{{roomdetails.pass=="cancel"?"black":""}};'  wx:if="{{roomdetails.pass=='cancel'}}">  已取消申请</text>
     </view>
     <view class='modal-conten1 modal-conten2' wx:if="{{isfinish}}">
       <view class='model-icon3'></view>
@@ -111,7 +112,7 @@
         <p>请小心使用教室内设备,防止损坏</p>
         <p>在借用日期前可以取消教室预约</p>
       </view>
-     <view class='canle-time {{isfinish==false?"canle-gray":""}}' bindtap='submitT' >取消预约</view>
+     <view class='canle-time {{isfinish==false||roomdetails.pass=="cancel"?"canle-gray":""}}' bindtap='submitT' ><span wx:if="{{roomdetails.pass=='cancel'}}">已取消</span><span wx:if="{{roomdetails.pass!='cancel'}}">取消预约</span></view>
   </view>
 </view>
 

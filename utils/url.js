@@ -7,6 +7,8 @@
   "pages/oneroomlist/oneroomlist", //可选择列表
   "pages/serchType/serchType", //选择教室类型
   "pages/introduce/introduce", //
+  "pages/secondselect/secondselect",//选择教室后的时间选择页面
+  "pages/second1select/second1select",//紫色选择教室后的时间选择页面
   "pages/logs/logs",
   "pages/demo/demo",
   "pages/question/question",

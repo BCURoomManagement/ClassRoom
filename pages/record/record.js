@@ -1,7 +1,8 @@
 // pages/record/record.js
 var tool = require("../../utils/util.js");
 var app = getApp();
-var API_URL = app.appServlet.servlet + 'RecordServlet';
+var API_URL = app.appServlet.servlet2 + 'RecordServlet';
+// var API_URL = app.appServlet.servlet + 'RecordServlet';
 Page({
 
   /**
@@ -10,10 +11,10 @@ Page({
   data: {
     selecDetail:null,
     userid:null,
+    username:null,
     recordlist:null,
     roomtypename: ["", "大数据学院", "多媒体教室", "普通教室"],
     typecolor: ["","linear-gradient(to right bottom, #D486FF 0%,#9666fe 100%)", "linear-gradient(to right bottom, #FFBA96 0%,#FF7A95 100%)", "linear-gradient(to right bottom, #33CAFF 0%,#2A85FC 100%)"],
-    datatime:"20181210",
     timeList: [{
       time: 1,
       start: "08:00",
@@ -100,6 +101,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("这是：record");
     var that = this;
     var nowtime = Date.parse(new Date());
     let today = tool.toDate(nowtime);
@@ -108,9 +110,9 @@ Page({
       nowdata: today
     })
       wx.request({
-        url: API_URL,
+        url: API_URL, 
           data: {
-              username:"admin"
+            username: app.Appuserinfo.userid
           },
           header: {
               'content-type': 'application/json' // 默认值
@@ -120,20 +122,20 @@ Page({
               that.setData({
                 recordlist:res.data
               })
-             for (let i = 0; i < that.data.recordlist.length; i++) {
-               let str = that.data.recordlist[i];
-               let dateyear = str.data.substr(0, 4);
-               let datemonth = str.data.substr(4, 2);
-               let dateday = str.data.substr(6, 2);
-               let suredata = str.data;
-               console.log(str.data)
-               let listdata = "recordlist[" + i + "].data"
-               that.setData({
-                 [listdata]: dateyear + "-" + datemonth + "-" + dateday
-               })
-               let timestring = JSON.stringify(that.data.recordlist[i]);
-               console.log(timestring)
-            }
+              for (let i = 0; i < that.data.recordlist.length; i++) {
+                let str = that.data.recordlist[i];
+                let dateyear = str.data.substr(0, 4);
+                let datemonth = str.data.substr(4, 2);
+                let dateday = str.data.substr(6, 2);
+                let suredata = str.data;
+                console.log(str.data)
+                let listdata = "recordlist[" + i + "].data"
+                that.setData({
+                  [listdata]: dateyear + "-" + datemonth + "-" + dateday
+                })
+                let timestring = JSON.stringify(that.data.recordlist[i]);
+                console.log(timestring)
+              }
             console.log(that.data.recordlist)
           }
       })

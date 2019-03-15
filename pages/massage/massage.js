@@ -1,43 +1,24 @@
-// pages/imfoopen/imfoopen.js
-var tool = require("../../utils/util.js");
+// pages/question/question.js
 var app = getApp();
-var API_URL = app.appServlet.servlet2 + 'MageServlet';
+var API_URL = app.appServlet.servlet2 + 'AddQuestionServlet';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    motto: "信息公开",
-    magelist:null
+    motto: "问题反馈",
+    mage:null
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-      wx.request({
-          url: API_URL,
-          data: {
-          },
-          header: {
-              'content-type': 'application/json' // 默认值
-          },
-          success: function (res) {
-            that.setData({
-              magelist:res.data
-            })
-          }
-      })
-  },
-  show:function(e){
-    console.log(e.currentTarget.dataset.item);
-    let massage = JSON.stringify(e.currentTarget.dataset.item);
-    wx.redirectTo({
-      url: '../massage/massage?mage=' + massage,
+    this.setData({
+      mage: JSON.parse(options.mage)
     })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

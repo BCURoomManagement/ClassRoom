@@ -3,7 +3,8 @@
 //
 // 
 var app = getApp();
-var API_URL = app.appServlet.servlet + 'IndexServlet';
+var API_URL = app.appServlet.servlet2 + 'IndexServlet';
+// var API_URL = app.appServlet.servlet + 'IndexServlet';
 Page({
 
   /**
@@ -16,6 +17,7 @@ Page({
     bgheight1:"",
     bgheight2: "",
     bgheight3: "",
+    searchType:null,
     roomtypename: ["", "大数据学院", "多媒体教室", "普通教室"],
     // array: [{
     //   roomname: " 大数据学院119", roomplace: "3号实训楼1层北侧", roompeople: 40, roomimg: "../../images/room3.png", wifi: false, ty: true, jsj: true, key: true, network: false, tv: true, studentcomputer: false, desk: false, ytj: false, hy: true, kt: false, gddesk: true}, { roomname: " 大数据学院119", roomplace: "3号实训楼1层北侧", roompeople: 20, roomimg: "../../images/room2.png", wifi: true, ty: false, jsj:true, key: false, network: false, tv: true, studentcomputer: true, desk: true, ytj: true, hy: false, kt: false, gddesk:true }, {roomname: " 大数据学院119", roomplace: "3号实训楼1层北侧", roompeople: 40, roomimg: "../../images/room3.png", wifi: false, ty: false, jsj: true, key: true, network: true, tv: true, studentcomputer: false, desk: true, ytj: false, hy: false, kt: true, gddesk: true}],
@@ -29,13 +31,15 @@ Page({
     selectjson:null,
     array1:null,
     array2:null,
-    array3:null
+    array3:null,
+    imgs: null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("这是：roomselect");
       var that = this;
       wx.request({
         url: API_URL,
@@ -48,10 +52,9 @@ Page({
           success: function (res) {
             that.setData({
               array1: res.data,
-              bgheight1: Object.keys(res.data).length
+              bgheight1: Object.keys(res.data).length,
             })
             console.log("that.data.array1");
-            console.log(that.data.array1);
           }
       })
       wx.request({
@@ -94,29 +97,34 @@ Page({
      * 滑动切换tab
      */
   bindChange: function (e) {
-
     var that = this;
-    that.setData({ currentTab: e.detail.current });
-
+    app.Appuserinfo.searchtype = e.detail.current+1;
+    that.setData({ 
+      currentTab: e.detail.current,
+      searchType: e.detail.current+1,
+    });
   },
   /**
    * 点击tab切换
    */
   swichNav: function (e) {
-
     var that = this;
-
     if (this.data.currentTab === e.target.dataset.current) {
       return false;
     } else {
       that.setData({
-        currentTab: e.target.dataset.current
+        currentTab: e.target.dataset.current,
       })
     }
   },
   go:function(e){
+    console.log(e.currentTarget.dataset.item);
+    let selectitem = JSON.stringify(e.currentTarget.dataset.item)
+    console.log(selectitem)
+    console.log("点击的selection")
+    app.Appuserinfo.selectroomid=e.target.dataset.roomid;
     wx.redirectTo({
-      url: '../timeselect/timeselect',
+      url: '../secondselect/secondselect?selectitem=' + selectitem,
     })
   },
   //弹出层

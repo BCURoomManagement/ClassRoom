@@ -42,6 +42,7 @@
   float: right;
   margin-top: 31rpx;
   margin-right: 33rpx;
+  z-index: 10;
 }
 .info-tools image{
   width: 41rpx;
@@ -49,7 +50,7 @@
 }
 .info-photo{
   border: 1px solid rgba(200,200,200,0);
-  position: relative;
+  /* position: relative; */
 }
 .head-img {
   margin-top: 71rpx;

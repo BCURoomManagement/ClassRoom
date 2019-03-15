@@ -15,11 +15,11 @@
           <view class='swiper-item1-view'>
             <view class='room-yd-view' wx:for="{{array1}}" data-item='{{item}}' wx:for-index="bindex" bindtap='show'>
               <view class='room-img'>
-                <image src='http://localhost:8080/upload/{{item.picture}}'></image>
+                <image src='https://www.bcuvote.top/RoomServer/upload/{{item.picture}}'></image>
               </view>
               <view class='room-bottom'>
                 <text class='room-bottom-romname'>大数据学院{{item.roomid}}</text>
-                <button class='button' catchtap='go'>预约</button>
+                <button class='button'  data-roomid='{{item.roomid}}' data-item='{{item}}' catchtap='go'>预约</button>
               </view>
             </view>
           </view>
@@ -29,11 +29,11 @@
           <view class='swiper-item1-view'>
             <view class='room-yd-view' wx:for="{{array2}}"  data-item='{{item}}'bindtap='show'>
               <view class='room-img'>
-                <image src='http://localhost:8080/upload/{{item.picture}}'></image>
+                <image src='https://www.bcuvote.top/RoomServer/upload/{{item.picture}}'></image>
               </view>
               <view class='room-bottom'>
                 <text class='room-bottom-romname'>多媒体教室{{item.roomid}}</text>
-                <button class='button' catchtap='go'>预约</button>
+                <button class='button' data-roomid='{{item.roomid}}' data-item='{{item}}' catchtap='go'>预约</button>
               </view>
           </view>
         </view>
@@ -43,11 +43,11 @@
            <view class='swiper-item1-view'>
             <view class='room-yd-view' wx:for="{{array3}}" data-item='{{item}}'bindtap='show'>
               <view class='room-img'>
-                <image src='http://localhost:8080/upload/{{item.picture}}'></image>
+                <image src='https://www.bcuvote.top/RoomServer/upload/{{item.picture}}'></image>
               </view>
               <view class='room-bottom'>
                 <text class='room-bottom-romname'>普通教室{{item.roomid}}</text>
-                <button class='button' catchtap='go'>预约</button>
+                <button class='button' data-roomid='{{item.roomid}}' data-item='{{item}}' catchtap='go'>预约</button>
               </view>
             </view>
           </view>
@@ -61,13 +61,15 @@
   <!-- <text class="textstyle {{selectjson.wifi==false?'second':''}}">{{selectjson.roomname}}</text> -->
     <view class='modal-top'>
       <!-- <image src='{{selectjson.roomimg}}'></image> -->
-      <image src='http://localhost:8080/upload/{{selectjson.picture}}'></image>
+      <view  style='height:400rpx;'>
+          <image src='https://www.bcuvote.top/RoomServer/upload/{{selectjson.picture}}'></image>
+      </view >
     </view>
     <view class='modal-bottom'>
        <view class='modal-bottom-patr1'>
         <view class='part1-name'>{{roomtypename[selectjson.typee]}}{{selectjson.roomid}}</view>
         <view class='part1-place'>{{selectjson.place}}</view>
-        <button class='part1-button'  catchtap='go'>预约</button>
+        <button class='part1-button'  data-roomid='{{selectjson.roomid}}' data-item='{{selectjson}}' catchtap='go'>预约</button>
        </view>
        <view class='modal-bottom-part2'>
           <view class='part2-view1'>基础设施</view>

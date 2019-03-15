@@ -16,7 +16,7 @@ Page({
     flag1: true,
     flag2: false,
     selectjson: null,
-    items:null,
+    items:0,
     roomjson:null,
     roomtypename:["","大数据学院","多媒体教室","普通教室"],
     Daydata:null,
@@ -34,8 +34,10 @@ Page({
       Classtime: options.Classtime,
       sinfonia: options.sinfonia,
     })
-    console.log(this.data.Daydata + "xxxxxxxx" + this.data.Classtime)
     console.log(this.data.roomjson)
+    console.log("这是：oneroomlist");
+    // console.log(this.data.Daydata + "xxxxxxxx" + this.data.Classtime)
+    // console.log(this.data.roomjson)
   },
 
   /**
@@ -52,8 +54,10 @@ Page({
       console.log("zzzzzddddddddd"+typeof (this.data.selectjson))
     }
     let selectData = JSON.stringify(this.data.selectjson);
+    console.log("oneroomlistzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+    console.log("oneroomlist" + selectData);
     wx.redirectTo({
-      url: '../oneroomsure/oneroomsure?selectData=' + selectData + "&Daydata=" + this.data.Daydata + "&Classtime=" + this.data.Classtime + "&sinfonia=" + this.data.sinfonia,
+      url: '../oneroomsure/oneroomsure?selectData=' + selectData + "&Daydata=" + this.data.Daydata + "&Classtime=" + this.data.Classtime + "&sinfonia=" + this.data.sinfonia +"&bgcolor=linear-gradient(to top  right,#ac4cff 0%, #9666fe 100%)&bgcoloronly=#9c5ffe&backpage=timeselect",
     })
   },
   //弹出层

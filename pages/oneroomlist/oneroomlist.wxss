@@ -25,6 +25,9 @@ height: 100%;
   padding: 50rpx 0;
   /* height: 1800rpx; */
 }
+.containerblack{
+  background: #fff;
+}
 
 
 .room-yd-view{
@@ -108,7 +111,7 @@ button::after{
   }
   .modal-top{
     width: 100%;
-    height: 438rpx;
+    height: 408rpx;
     /* border:1px solid red; */
     border-top-left-radius: 20rpx;
     border-top-right-radius: 20rpx;
@@ -225,5 +228,15 @@ button::after{
     height: 21rpx;
     margin-right: 4rpx;
   }
-
+  .room-yd-view-no{
+  text-align: center;
+  margin-top: 125rpx;
+}
+.room-img-no{
+    margin-top: 30rpx;
+}
+.room-text-no{
+  letter-spacing: 5rpx;
+  color: #7D7D7D;
+}
 

@@ -1,6 +1,5 @@
 /* pages/oneroomsure/oneroomsure.wxss */
 .body{
-  background: linear-gradient(to top  right,#ac4cff 0%, #9666fe 100%);
   width: 100vw;
   margin-top: -78px;
   padding-top: 80px;
@@ -151,6 +150,14 @@
   font-size: 30rpx;
   z-index: 1;
 }
+.model-input picker{
+  height: 23rpx;
+  margin-left: 10rpx;
+  color: #818181;
+  letter-spacing: 3rpx;
+  font-size: 30rpx;
+  z-index: 1;
+}
 .phone{
   margin-top: 30rpx
 }
@@ -233,14 +240,14 @@
   margin: 120rpx auto 50rpx auto;
   width: 620rpx;
   height: 88rpx;
-  background: linear-gradient(to right,#ac4cff 0%, #9666fe 100%);
+  /* background: linear-gradient(to right,#ac4cff 0%, #9666fe 100%); */
   color: white;
   font-size: 50rpx;
   text-align: center;
   letter-spacing: 20rpx;
   line-height: 88rpx;
   border-radius: 20rpx;
-  box-shadow: 0 0 15rpx #9c5ffe;
+  box-shadow: 0 0 15rpx #33CAFF;
 }
 /* 弹出 */
 .model-box-sure{
@@ -252,7 +259,7 @@
   overflow: hidden;
   }
   .box-sure-bg{
-  box-shadow: 0 0rpx 20rpx #9666fe;
+  box-shadow: 0 0rpx 20rpx #33CAFF;
   margin: 370rpx auto;
   width: 560rpx;
   height: 600rpx;
@@ -270,7 +277,7 @@
   }
   .sure-success{
     font-size: 40rpx;
-    color: #9666fe;
+    color: #33CAFF;
     letter-spacing: 3rpx;
     margin-top: 45rpx;
   }
@@ -287,14 +294,14 @@
   margin: 70rpx auto 50rpx auto;
   width: 300rpx;
   height: 88rpx;
-  background: linear-gradient(to right,#ac4cff 0%, #9666fe 100%);
+  background:linear-gradient(to right, #33CAFF 0%,#2A85FC 100%);
   color: white;
   font-size: 35rpx;
   text-align: center;
   letter-spacing: 10rpx;
   line-height: 88rpx;
   border-radius: 40rpx;
-  box-shadow: 0 0 15rpx #9c5ffe;
+  box-shadow: 0 0 15rpx #33CAFF;
 }
 .modal-body-cha{
     width: 50rpx;

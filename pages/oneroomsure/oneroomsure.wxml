@@ -1,6 +1,6 @@
 <!--pages/oneroomsure/oneroomsure.wxml-->
-<backbar gohref="../oneroomlist/oneroomlist" paddingtop="115" margintop="0" imgcolor="back-grey"></backbar>
-<view class='body' style='hide:{{screenheight}}rpx'>
+<backbar gohref="../{{backpage}}/{{backtab}}" paddingtop="115" margintop="0" imgcolor="back-grey"></backbar>
+<view class='body' style='hide:{{screenheight}}rpx;background:{{bgcolor}}'>
   <view class='modal-body'>
     <view class='modal-bottom'>
        <view class='modal-bottom-patr1'>
@@ -79,7 +79,10 @@
     <view class='model-input'>
       <view class='model-inputuse'>
         <text>用途</text>
-        <input placeholder='请输入教室用途' hidden='{{zindex}}' name='useruse' bindinput="getUse"></input>
+        <!-- <input placeholder='请选择教室用途' hidden='{{zindex}}' name='useruse' bindinput="getUse"></input> -->
+        <picker bindchange="getUse" value="{{use}}" range="{{uselist}}" style='height:55rpx'>
+          <span wx:if="{{use==null}}">请选择教室用途</span>{{uselist[use]}}
+        </picker>
       </view>
       <view class='model-inputuse phone'>
         <text>电话</text>
@@ -111,7 +114,7 @@
         <p>在借用日期前可以取消教室预约</p>
         <p>请小心使用教室内设备,防止损坏</p>
       </view>
-     <view class='submit-time' bindtap='submitT'>确 认</view>
+     <view class='submit-time' bindtap='submitT' style="background:{{bgcolor}};box-shadow: 0 0 15rpx {{bgcoloronly}};">确 认</view>
   </view>
 </view>
 <view class='model-box-sure' hidden="{{flag1}}" catchtouchmove='true'>
