@@ -46,6 +46,6 @@ App({
     selectroomid:null,
   },
   appServlet:{
-    servlet:'http://localhost:8080/' 
+    servlet2: 'https://www.bcuvote.top/RoomServer/',
   }
 })
