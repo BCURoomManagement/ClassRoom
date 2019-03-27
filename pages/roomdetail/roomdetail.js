@@ -9,6 +9,7 @@ Page({
    */
   data: {
     roomtypename: ["", "大数据学院", "多媒体教室", "普通教室"],
+    uselist: ['班会', '补习', '讲座', '工作室活动', '其他'],
     roomdetails:null,
     isfinish:true,
     iscancel:false,
@@ -107,48 +108,51 @@ Page({
       wx.showModal({
         title: '',
         content: '是否取消预约',
-        showCancel: false,
+        showCancel: true,
         confirmText: '确定',
         cancelText: "取消",
         confirmColor: "#77a9fb",
         success: function (res) {
-          var cdata = that.data.roomdetails;
-          var cdateday = cdata.data.split("-").join("");
-          console.log(cdateday);
-          var submission = cdata.submission;
-          var Classtime = new Array(15);
-          for (var j = 0; j < Classtime.length; j++) {
-            console.log("进来了" + j)
-            Classtime[j] = 0;
+          if(res.confirm){
+            var cdata = that.data.roomdetails;
+            var cdateday = cdata.data.split("-").join("");
+            console.log(cdateday);
+            var submission = cdata.submission;
+            var Classtime = new Array(15);
+            for (var j = 0; j < Classtime.length; j++) {
+              console.log("进来了" + j)
+              Classtime[j] = 0;
+            }
+            var ftime = that.data.roomdetails.ftime;
+            var ltime = that.data.roomdetails.ltime
+            for (var k = ftime; k <= ltime; k++) {
+              console.log("进来了qq" + k)
+              Classtime[k] = 1;
+            }
+            console.log("需要取消的时间" + Classtime);
+            wx.request({
+              //url: '',
+              url: API_URL,
+              data: {
+                roomid: that.data.roomdetails.roomid,
+                Daydata: cdateday,
+                time: Classtime,
+                submission: that.data.roomdetails.submission,
+                username: that.data.userid
+              },
+              header: {
+                'content-type': 'application/json' // 默认值
+              },
+              success: function (res) {
+                wx.redirectTo({
+                  url: '../record/record',
+                })
+              },
+              fail: function (e) {
+              },
+            })
           }
-          var ftime = that.data.roomdetails.ftime;
-          var ltime = that.data.roomdetails.ltime
-          for (var k = ftime; k <= ltime; k++) {
-            console.log("进来了qq" + k)
-            Classtime[k] = 1;
-          }
-          console.log("需要取消的时间" + Classtime);
-          wx.request({
-            //url: '',
-            url: API_URL,
-            data: {
-              roomid: that.data.roomdetails.roomid,
-              Daydata: cdateday,
-              time: Classtime,
-              submission: that.data.roomdetails.submission,
-              username: that.data.userid
-            },
-            header: {
-              'content-type': 'application/json' // 默认值
-            },
-            success: function (res) {
-              wx.redirectTo({
-                url: '../record/record',
-              })
-            },
-            fail: function (e) {
-            },
-          })
+
         }
       })
     }else{

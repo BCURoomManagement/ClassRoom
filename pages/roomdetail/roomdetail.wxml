@@ -87,7 +87,7 @@
       </view>
       <view class='model-inputuse data-sure'>
         <text class='detail-title'>用途</text>
-        <text class='detail-value'>{{roomdetails.use}}</text>
+        <text class='detail-value'>{{uselist[roomdetails.use]}}</text>
       </view>
       <view class='model-inputuse phone time-sure'>
         <text class='detail-title'>电话</text>
