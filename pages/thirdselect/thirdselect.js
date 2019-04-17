@@ -134,7 +134,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("这是：thirdselect");
+    var thedate = new Date();
     this.setData({
       roomid: options.roomid,
       roomtype: app.Appuserinfo.searchtype,
@@ -142,13 +142,28 @@ Page({
       cnselectTime: options.cnselectTime,
       selectitem: options.selectitem,
     })
-    console.log(this.data.canselect)
     let canselect = this.data.cnselectTime.split(",").join("");
     for (let i = 0; i < canselect.length; i++) {
       if (canselect[i] == "1") {
+        this.data.timeList[i].isempty = 1
+      }
+    }
+    var nowtime = Date.parse(new Date());
+    let thistime = tool.toTime(nowtime);
+    var nowtimesplit = thistime.split(':');
+    if (this.data.selectDday == thedate.getDate()) {
+      for (let i = 0; i < this.data.timeList.length; i++) {
+        var timesplit = this.data.timeList[i].start.split(':');
+        console.log(timesplit[0] > nowtimesplit[2])
+        if (timesplit[0] < nowtimesplit[2]) {
           this.data.timeList[i].isempty = 1
+        } else if (timesplit[0] == nowtimesplit[2]) {
+          if (timesplit[1] < nowtimesplit[3]) {
+            this.data.timeList[i].isempty = 1
+          }
         }
       }
+    }
     this.setData({
       timeList: this.data.timeList
     })

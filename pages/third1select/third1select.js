@@ -135,6 +135,8 @@ Page({
    */
   onLoad: function (options) {
     console.log("这是：third1select");
+    //获取今日日期
+    var thedate = new Date();
     this.setData({
       roomid: options.roomid,
       roomtype: app.Appuserinfo.searchtype,
@@ -148,11 +150,50 @@ Page({
           this.data.timeList[i].isempty = 1
         }
       }
+    var nowtime = Date.parse(new Date());
+    let thistime = tool.toTime(nowtime);
+    var nowtimesplit = thistime.split(':');
+    if (this.data.selectDday == thedate.getDate()){
+      for (let i = 0; i < this.data.timeList.length; i++) {
+        var timesplit = this.data.timeList[i].start.split(':');
+        console.log(timesplit[0] > nowtimesplit[2])
+        if (timesplit[0] < nowtimesplit[2]) {
+          this.data.timeList[i].isempty = 1
+        } else if (timesplit[0] == nowtimesplit[2]) {
+          if (timesplit[1] < nowtimesplit[3]) {
+            this.data.timeList[i].isempty = 1
+          }
+        }
+      }
+    }
     this.setData({
       timeList: this.data.timeList
     })
     // console.log(this.data.timeList);
     // console.log("selectDate" + this.data.selectDday + "selectroomid" + this.data.roomid);
+  },
+  isempty: function () {
+    //今日时间前不可借
+    // var nowtime = Date.parse(new Date());
+    // let thistime = tool.toTime(nowtime);
+    // var nowtimesplit = thistime.split(':');
+    // console.log(nowtimesplit)
+    // var timelistnew = this.data.timeList
+    // for (let i = 0; i < timelistnew.length; i++) {
+    //   var timesplit = timelistnew[i].start.split(':');
+    //   console.log(timesplit[0] > nowtimesplit[2])
+    //   if (timesplit[0] < nowtimesplit[2]) {
+    //     timelistnew[i].isempty = 1
+    //   } else if (timesplit[0] == nowtimesplit[2]) {
+    //     if (timesplit[1] < nowtimesplit[3]) {
+    //       timelistnew[i].isempty = 1
+    //     }
+    //   }
+    // }
+    // this.setData({
+    //   timeList: timelistnew
+    // })
+
   },
   //日历相关
   selectTime: function (e) {

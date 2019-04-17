@@ -1,5 +1,6 @@
 // pages/yan/yan.js
 var app = getApp();
+var tool = require("../../utils/util.js");
 var API_URL = app.appServlet.servlet2 + 'ClassTimeServlet';
 var API_URL_datalist = app.appServlet.servlet2 + 'IndexServlet';
 // var API_URL = app.appServlet.servlet + 'ClassTimeServlet';
@@ -35,86 +36,100 @@ Page({
       classz: '',
       timetext: 1,
       start: "08:00",
-      end: "08:45"
+      end: "08:45",
+      isempty: 0
     },
     {
       time: 2,
       classz: '',
       timetext: 2,
       start: "08:45",
-      end: "09:30"
+      end: "09:30",
+      isempty: 0
     }, {
       time: 3,
       classz: '',
       timetext: 3,
       start: "09:45",
-      end: "10:30"
+      end: "10:30",
+      isempty: 0
     }, {
       time: 4,
       classz: '',
       timetext: 4,
       start: "10:30",
-      end: "11:15"
+      end: "11:15",
+      isempty: 0
     }, {
       time: 5,
       classz: '',
       timetext: '午1',
       start: "11:25",
-      end: "12:10"
+      end: "12:10",
+      isempty: 0
     }, {
       time: 6,
       classz: '',
       timetext: "午2",
       start: "12:10",
-      end: "12:55"
+      end: "12:55",
+      isempty: 0
     }, {
       time: 7,
       classz: '',
       timetext: 5,
       start: "13:05",
-      end: "13:50"
+      end: "13:50",
+      isempty: 0
     }, {
       time: 8,
       classz: '',
       timetext: 6,
       start: "13:50",
-      end: "14:35"
+      end: "14:35",
+      isempty: 0
     }, {
       time: 9,
       classz: '',
       timetext: 7,
       start: "14:50",
-      end: "15:35"
+      end: "15:35",
+      isempty: 0
     }, {
       time: 10,
       classz: '',
       timetext: 8,
       start: "15:35",
-      end: "16:40"
+      end: "16:40",
+      isempty: 0
     }, {
       time: 11,
       classz: '',
       timetext: "晚1",
       start: "16:30",
-      end: "17:15"
+      end: "17:15",
+      isempty: 0
     }, {
       time: 12,
       classz: '',
       timetext: "晚2",
       start: "17:15",
-      end: "18:00"
+      end: "18:00",
+      isempty: 0
     }, {
       time: 13,
       classz: '',
       timetext: "晚3",
       start: "18:10",
-      end: "18:55"
+      end: "18:55",
+      isempty: 0
     }, {
       time: 14,
       classz: '',
       timetext: "晚4",
       start: "18:55",
-      end: "19:40"
+      end: "19:40",
+      isempty: 0
     }
     ],
     Timebegin: null,
@@ -132,6 +147,8 @@ Page({
     roomtypename: ["", "大数据学院", "多媒体教室", "普通教室"],
     flagshow1: true,
     flagshow2: false,
+    cnselectTime: null,
+    canselectList: true,
   },
 
   /**
@@ -170,6 +187,7 @@ Page({
         console.log(that.data.roomjson);
       }
     })
+    this.isempty();
   },
   changeimg: function () {
     this.setData({
@@ -264,6 +282,40 @@ Page({
       console.log(this.data.firstDay + "this.data.prefirst")
     }
   },
+  //该时间点可不可借
+  isempty:function(){
+ //今日时间前不可借
+      var nowtime = Date.parse(new Date());
+      let thistime = tool.toTime(nowtime);
+      var nowtimesplit = thistime.split(':');
+      console.log(nowtimesplit)
+      var timelistnew = this.data.timeList
+      for (let i = 0; i < timelistnew.length; i++) {
+        var timesplit = timelistnew[i].start.split(':');
+        console.log(timesplit[0] > nowtimesplit[2])
+        if (timesplit[0] < nowtimesplit[2]) {
+          timelistnew[i].isempty = 1
+        } else if (timesplit[0] == nowtimesplit[2]) {
+          if (timesplit[1] < nowtimesplit[3]) {
+            timelistnew[i].isempty = 1
+          }
+        }
+      }
+      this.setData({
+        timeList: timelistnew
+      })
+     
+  },
+  cleanempty:function(){
+    var timelistnew = this.data.timeList
+    for (let i = 0; i < timelistnew.length;i++){
+      timelistnew[i].isempty=0
+    }
+    this.setData({
+      timeList: timelistnew
+    })
+    console.log(this.data.timeList)
+  },
   nextMonth: function () {
     // var flagmonth = this.data.flagmonth;
     var cha = 7 - (this.data.lastDay - this.data.getDate);
@@ -332,35 +384,50 @@ Page({
         checkBegin: false,
         checkEnd: false,
       })
-      this.renderStyle();
-      // console.log(this.data.selectMontn +"selectMontn: montn")
+      if (e.currentTarget.dataset.day == this.data.getDate){
+        this.isempty();
+      }else{
+        this.cleanempty();
+      }
+      this.renderStyle();      
+      // console.log(this.data.selectMontn + "selectMontn: montn" + "zz" + this.data.selectDday)
     }
-    console.log(this.data.selectDday)
+    // console.log(this.data.selectDday)
   },
   selectTime: function (e) {
     var timeList = this.data.timeList;
-    if (this.data.checkBegin && this.data.Timebegin > e.currentTarget.dataset.stime) {
-      this.setData({
-        Timebegin: e.currentTarget.dataset.stime,
-        checkEnd: false,
-        Timeend: ''
+    if (timeList[e.currentTarget.dataset.stime - 1].isempty == 1) {
+      wx.showModal({
+        title: '',
+        content: '该教室该时间段不可借用',
+        showCancel: false,
+        confirmText: '确定',
+        confirmColor: "#77a9fb",
       })
-      console.log(this.data.Timebegin + "-" + this.data.Timeend + "一");
-    } else if (this.data.checkBegin && this.data.checkEnd == false) {
-      this.setData({
-        Timeend: e.currentTarget.dataset.stime,
-        checkEnd: true,
-      })
-      console.log(this.data.Timebegin + "-" + this.data.Timeend + "二");
-    } else if (this.data.checkBegin == false || this.data.checkEnd == true) {
-      this.setData({
-        Timebegin: e.currentTarget.dataset.stime,
-        Timeend: '',
-        timeList: timeList,
-        checkBegin: true,
-        checkEnd: false
-      })
-      console.log(this.data.Timebegin + "-" + this.data.Timeend + "三");
+    } else {
+      if (this.data.checkBegin && this.data.Timebegin > e.currentTarget.dataset.stime) {
+        this.setData({
+          Timebegin: e.currentTarget.dataset.stime,
+          checkEnd: false,
+          Timeend: ''
+        })
+        console.log(this.data.Timebegin + "-" + this.data.Timeend + "一");
+      } else if (this.data.checkBegin && this.data.checkEnd == false) {
+          this.setData({
+            Timeend: e.currentTarget.dataset.stime,
+            checkEnd: true,
+          })
+        console.log(this.data.Timebegin + "-" + this.data.Timeend + "二");
+      } else if (this.data.checkBegin == false || this.data.checkEnd == true) {
+        this.setData({
+          Timebegin: e.currentTarget.dataset.stime,
+          Timeend: '',
+          timeList: timeList,
+          checkBegin: true,
+          checkEnd: false
+        })
+        console.log(this.data.Timebegin + "-" + this.data.Timeend + "三");
+      }
     }
     for (var j = 0; j < this.data.timeList.length; j++) {
       this.data.timeList[j].classz = '';

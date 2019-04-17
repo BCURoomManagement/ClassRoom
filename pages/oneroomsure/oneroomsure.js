@@ -9,6 +9,7 @@ Page({
     data: {
         flag1: true,
         zindex: false,
+        isinput:true, //隐藏input
         isexist: true,
         roomtypename: ["", "大数据学院", "多媒体教室", "普通教室"],
         uselist: ['班会', '补习', '讲座', '工作室活动','其他'],
@@ -106,7 +107,10 @@ Page({
                     that.setData({
                       flag1: false,
                       zindex: true,
+                      isinput:false,
                     })
+                  }else{
+
                   }
                 },
                 fail: function(e) {

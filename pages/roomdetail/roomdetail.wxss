@@ -165,7 +165,7 @@
   width: 18rpx;
   content: '';
   border-radius: 50%;
-  border: 8rpx solid #ff6739;
+  border: 8rpx solid #ffc039;
 }
 .model-content2detail{
   margin-top: 35rpx;
@@ -211,6 +211,20 @@
   border-radius: 50%;
   border: 8rpx solid #9666fe;
 }
+
+.model-icon4{
+  width: 30rpx;
+  height: 30rpx;
+}
+.model-icon4:after {
+  position: absolute;
+  height: 18rpx;
+  width: 18rpx;
+  content: '';
+  border-radius: 50%;
+  border: 8rpx solid red;
+}
+
 .modal-conten2{
   margin-top: 20rpx;
 }

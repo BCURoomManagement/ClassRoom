@@ -88,7 +88,7 @@ Page({
     })
     var nowtime = Date.parse(new Date());
     let today = tool.toDate(nowtime);
-    console.log("today" + today);
+    console.log(this.data.roomdetails);
     //未完成
     if (this.data.roomdetails.data <= today){
       this.setData({

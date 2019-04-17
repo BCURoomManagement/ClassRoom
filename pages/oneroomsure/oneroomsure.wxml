@@ -80,7 +80,7 @@
       <view class='model-inputuse'>
         <text>用途</text>
         <!-- <input placeholder='请选择教室用途' hidden='{{zindex}}' name='useruse' bindinput="getUse"></input> -->
-        <picker bindchange="getUse" value="{{use}}" range="{{uselist}}" style='height:55rpx'>
+        <picker bindchange="getUse" value="{{use}}" range="{{uselist}}" style='height:55rpx' wx:if="{{isinput}}" >
           <span wx:if="{{use==null}}">请选择教室用途</span>{{uselist[use]}}
         </picker>
       </view>

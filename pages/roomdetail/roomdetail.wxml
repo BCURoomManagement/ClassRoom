@@ -104,6 +104,13 @@
       <text style='color:{{roomdetails.pass=="nopass"?"red":""}};'  wx:if="{{roomdetails.pass=='nopass'}}"> 未通过</text>
       <text style='color:{{roomdetails.pass=="cancel"?"black":""}};'  wx:if="{{roomdetails.pass=='cancel'}}">  已取消申请</text>
     </view>
+    <view class='modal-conten1' wx:if="{{roomdetails.pass=='nopass'}}">
+      <view class='model-icon4'></view>
+      <view class='model-title'>未通过原因</view>
+    </view>
+    <view class='model-input model-ispass' style='{{isfinish==true?"margin-bottom: 50rpx;":""}}' wx:if="{{roomdetails.pass=='nopass'}}">
+      <text style='color:#000'>{{roomdetails.noinf}}</text>
+    </view>
     <view class='modal-conten1 modal-conten2' wx:if="{{isfinish}}">
       <view class='model-icon3'></view>
       <view class='model-title'>注意事项</view>

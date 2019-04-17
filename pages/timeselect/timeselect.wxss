@@ -460,3 +460,7 @@ button::after{
     height: 21rpx;
     margin-right: 4rpx;
   }
+
+  .noselect{
+  color: #ebeeef;
+  }

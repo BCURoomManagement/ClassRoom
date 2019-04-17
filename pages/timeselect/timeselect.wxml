@@ -27,7 +27,7 @@
           <view class='left-am left-pm'>下 午</view>
         </view>
         <view class='class-calendar-right'>
-          <view class='calendar-right-num {{item.classz}} 'wx:for='{{ timeList }}' data-stime="{{item.time}}" bindtap='selectTime'>{{item.timetext}}
+          <view class='calendar-right-num {{item.classz}} {{item.isempty==0?"":"noselect"}} 'wx:for='{{ timeList }}' data-stime="{{item.time}}" bindtap='selectTime'>{{item.timetext}}
           </view>
         </view>
     </view>
