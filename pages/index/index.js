@@ -64,7 +64,7 @@ Page({
         confirmColor: "#77a9fb"
       })
     } else {
-      wx.redirectTo({
+      wx.navigateTo({
         url: event.currentTarget.dataset.href
       })
     }

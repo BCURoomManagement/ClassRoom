@@ -54,7 +54,7 @@
         </swiper-item>
       </swiper>
   </view>
-<view class='container-right'style='height:{{(((currentTab==0?bgheight1:(currentTab==1?bgheight2:bgheight3))-2)*450+300+screenheight*2)>screenheight*2?(((currentTab==0?bgheight1:(currentTab==1?bgheight2:bgheight3))-2)*450+300+screenheight*2):screenheight*2.3}}rpx'hidden="{{flag2}}"></view>
+<view class='container-right'style='height:{{(((currentTab==0?bgheight(currentTab==1?bgheight2:bgheight3))-2)*450+300+screenheight*2)>screenheight*2?(((currentTab==0?bgheight1:(currentTab==1?bgheight2:bgheight3))-2)*450+300+screenheight*2):screenheight*2.3}}rpx'hidden="{{flag2}}"></view>
 </view>
 <view class="modal-box" hidden="{{flag1}}" bindtap="hide" catchtouchmove='true'>
   <view class='modal-body'>

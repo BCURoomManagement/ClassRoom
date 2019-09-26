@@ -15,6 +15,8 @@
 	"appid": "wxb93c01a755e5063d",
 	"projectname": "ClassroomManagement",
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

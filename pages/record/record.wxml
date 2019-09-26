@@ -22,8 +22,8 @@
     </view>
     <view class='view-shadow'></view>
   </view>
-    <view class='view2 {{item.data<nowdata||item.pass=="cancel"?"finish":""}}' style='background:{{typecolor[item.typee]}} ' wx:for="{{recordlist}}"  data-href='../timeselect/timeselect' data-type="{{item.typee}}" wx:for-index="bindex" >
-        <view class='text1'>
+    <view  class='view2 {{item.data<nowdata||item.pass=="cancel"?"finish":""}}' style='background:{{typecolor[item.typee]}} ' wx:for="{{recordlist}}"  data-href='../timeselect/timeselect' data-type="{{item.typee}}" wx:for-index="bindex" >
+        <view class='text1' data-bindex='{{bindex}}' bindtap='godetail'>
             <text>{{roomtypename[item.typee]}}{{item.roomid}}</text>
             <text class='text-place'>日期: {{item.data}}  时间: {{timeList[item.ftime-1].start}} - {{timeList[item.ltime-1].start}}</text>
         </view>
